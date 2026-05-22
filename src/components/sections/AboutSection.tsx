@@ -79,7 +79,7 @@ export default function AboutSection() {
             transition={{ duration: 0.55 }}
           >
             <span className="text-sm font-bold uppercase tracking-[0.25em] text-[#007185] dark:text-[#ffd814]">
-              About TechNova
+              About TechNova Solutions
             </span>
 
             <h2 className="mt-5 text-4xl font-black leading-tight text-slate-950 dark:text-white sm:text-5xl lg:text-6xl">

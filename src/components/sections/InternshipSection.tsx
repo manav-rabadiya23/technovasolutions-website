@@ -140,7 +140,7 @@ export default function InternshipSection() {
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
               {[
                 { label: "Training Type", value: "Practical" },
-                { label: "Project Work", value: "Included" },
+                { label: "Internship Fee", value: "₹149 Only" },
                 { label: "Guidance", value: "Mentor Led" },
                 { label: "Outcome", value: "Certificate" },
               ].map((item) => (

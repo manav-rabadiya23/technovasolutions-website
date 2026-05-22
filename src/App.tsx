@@ -10,6 +10,7 @@ import ContactSection from "./components/sections/ContactSection";
 import AboutSection from "./components/sections/AboutSection";
 import InternshipSection from "./components/sections/InternshipSection";
 import PortfolioSection from "./components/sections/PortfolioSection";
+import TeamSection from "./components/sections/TeamSection";
 import ScrollToTop from "./components/ScrollToTop";
 
 function HomePage() {
@@ -37,14 +38,17 @@ function ContactPage() {
 }
 
 export default function App() {
-  const [dark, setDark] = useState(false);
+  const [dark, setDark] = useState(() =>
+    document.documentElement.classList.contains("dark"),
+  );
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", dark);
+    localStorage.setItem("theme", dark ? "dark" : "light");
   }, [dark]);
 
   return (
-    <main className="bg-white pt-[72px] dark:bg-[#050816]">
+    <main className="min-h-screen bg-white pt-18 text-slate-950 transition-colors duration-300 dark:bg-[#050816] dark:text-white">
       <Header dark={dark} setDark={setDark} />
 
       <ScrollToTop />
@@ -57,6 +61,7 @@ export default function App() {
           <Route path="/internship" element={<InternshipPage />} />
           <Route path="/portfolio" element={<PortfolioPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/team" element={<TeamSection />} />
         </Routes>
       </div>
 

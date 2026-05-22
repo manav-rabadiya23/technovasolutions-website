@@ -4,14 +4,26 @@
 
 html {
   scroll-behavior: smooth;
+  background: #050816;
 }
 
 body {
   margin: 0;
   font-family: Inter, system-ui, sans-serif;
-  background: #ffffff;
+  background: #050816;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-.dark body {
-  background: #050816;
+* {
+  box-sizing: border-box;
+  backface-visibility: hidden;
+}
+
+img,
+video,
+canvas,
+svg {
+  max-width: 100%;
 }

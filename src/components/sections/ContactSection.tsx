@@ -214,7 +214,7 @@ export default function ContactSection() {
           </p>
 
           <a
-            href="mailto:wfm.technovasolution@gmail.com"
+            href="mailto:support.technovasolutions@gmail.com"
             className="mt-7 inline-flex items-center gap-3 rounded-xl bg-[#ffd814] px-8 py-4 text-sm font-bold text-[#111827] shadow-sm transition hover:bg-[#f7ca00]"
           >
             Start a Conversation

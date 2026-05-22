@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
+  Sparkles,
   Code2,
   Smartphone,
   Brain,
@@ -101,13 +102,13 @@ export default function HeroSection() {
                 initial={{ opacity: 0, y: 35, scale: 0.96 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 transition={{ delay: 0.15, duration: 0.8, ease: "easeOut" }}
-                className="mx-auto max-w-3xl text-[34px] font-extrabold leading-[1.02] tracking-tight sm:text-5xl lg:mx-0 lg:text-[56px] xl:text-[64px]"
+                className="mx-auto max-w-3xl font-['Poppins'] text-[34px] font-black leading-[1.05] tracking-[-0.03em] text-white sm:text-5xl lg:mx-0 lg:text-[58px] xl:text-[68px]"
               >
                 <motion.span
                   initial={{ opacity: 0, y: 24 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.25, duration: 0.55 }}
-                  className="block"
+                  className="block font-['Poppins']"
                 >
                   Building Intelligent
                 </motion.span>
@@ -280,24 +281,27 @@ export default function HeroSection() {
                       },
                     }}
                     whileHover={{
-                      y: -12,
-                      scale: 1.04,
-                      boxShadow: "0 0 40px rgba(99,102,241,0.35)",
+                      y: -10,
+                      scale: 1.03,
                     }}
-                    className={`absolute z-20 w-[122px] rounded-[22px] border border-white/15 bg-white/[0.07] p-2.5 shadow-2xl backdrop-blur-xl transition-all duration-500 hover:bg-white/[0.09] sm:w-[170px] sm:p-4 lg:w-[200px] lg:p-5 ${item.className}`}
+                    className={`absolute z-20 w-[135px] rounded-[26px] border border-white/12 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03))] p-[1px] shadow-[0_10px_50px_rgba(59,130,246,0.15)] backdrop-blur-2xl sm:w-[185px] lg:w-[215px] ${item.className}`}
                   >
-                    <div className="flex items-center gap-2 sm:gap-4">
-                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500/25 to-violet-500/25 text-blue-300 shadow-lg shadow-blue-500/10 sm:h-14 sm:w-14">
-                        <Icon
-                          size={20}
-                          strokeWidth={2.2}
-                          className="shrink-0 sm:h-7 sm:w-7"
-                        />
-                      </div>
+                    <div className="rounded-[25px] border border-white/8 bg-[#10172d]/90 px-3 py-3 sm:px-4 sm:py-4 lg:px-5 lg:py-5">
+                      <div className="flex items-center gap-3 sm:gap-4">
+                        <div className="relative flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-blue-400/20 bg-gradient-to-br from-[#1d4ed8]/30 to-[#7c3aed]/20 text-blue-200 shadow-[0_0_25px_rgba(59,130,246,0.25)] sm:h-14 sm:w-14">
+                          <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-400/10 to-violet-400/10" />
 
-                      <h3 className="whitespace-pre-line text-[11px] font-bold leading-snug text-white sm:text-base lg:text-lg">
-                        {item.title}
-                      </h3>
+                          <Icon
+                            size={22}
+                            strokeWidth={2.3}
+                            className="relative z-10 sm:h-7 sm:w-7"
+                          />
+                        </div>
+
+                        <h3 className="whitespace-pre-line text-[13px] font-semibold leading-[1.35] tracking-[-0.01em] text-white sm:text-[17px] lg:text-[18px]">
+                          {item.title}
+                        </h3>
+                      </div>
                     </div>
                   </motion.div>
                 );

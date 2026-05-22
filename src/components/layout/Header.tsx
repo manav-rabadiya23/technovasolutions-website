@@ -10,6 +10,7 @@ import {
   GraduationCap,
   FolderKanban,
   Phone,
+  Users,
   ArrowRight,
 } from "lucide-react";
 import { useState } from "react";
@@ -27,6 +28,7 @@ const navItems = [
   { name: "Services", href: "/services", icon: Briefcase },
   { name: "Internship", href: "/internship", icon: GraduationCap },
   { name: "Portfolio", href: "/portfolio", icon: FolderKanban },
+  { name: "Our Team", href: "/team", icon: Users },
   { name: "Contact", href: "/contact", icon: Phone },
 ];
 
@@ -35,8 +37,7 @@ export default function Header({ dark, setDark }: Props) {
 
   return (
     <header className="fixed left-0 top-0 z-[999] w-full border-b border-slate-200/80 bg-white/95 text-slate-950 shadow-sm backdrop-blur-xl transition-all duration-300 dark:border-white/10 dark:bg-[#030712]/95 dark:text-white">
-      {" "}
-      <div className="mx-auto flex h-[56px] w-full max-w-[1500px] items-center justify-between px-4 sm:h-[64px] sm:px-6 lg:h-[72px] lg:px-10 xl:px-14">
+      <div className="mx-auto flex h-[56px] w-full max-w-[1500px] items-center justify-between px-4 sm:h-[64px] sm:px-6 lg:h-[72px] lg:px-8 xl:px-10">
         <NavLink
           to="/"
           onClick={() => setOpen(false)}
@@ -50,7 +51,7 @@ export default function Header({ dark, setDark }: Props) {
 
           <div className="min-w-0 leading-none">
             <h1
-              className="truncate text-[18px] font-semibold tracking-[-0.04em] transition-all duration-300 sm:text-[23px] xl:text-[28px]"
+              className="truncate text-[18px] font-semibold tracking-[-0.04em] sm:text-[22px] xl:text-[26px]"
               style={{ fontFamily: "'Georgia', 'Times New Roman', serif" }}
             >
               <span className="text-[#061B46] dark:text-white">TechNova</span>{" "}
@@ -67,13 +68,14 @@ export default function Header({ dark, setDark }: Props) {
             </p>
           </div>
         </NavLink>
-        <nav className="hidden min-w-0 items-center justify-center gap-4 lg:flex xl:gap-7">
+
+        <nav className="hidden min-w-0 items-center justify-center gap-3 lg:flex xl:gap-5">
           {navItems.map((item) => (
             <NavLink
               key={item.name}
               to={item.href}
               className={({ isActive }) =>
-                `group relative whitespace-nowrap rounded-full px-1 py-2 text-[14px] font-bold transition-all duration-300 xl:text-[15px] ${
+                `group relative whitespace-nowrap rounded-full px-1 py-2 text-[13px] font-bold transition-all duration-300 xl:text-[14px] ${
                   isActive
                     ? "text-blue-600 dark:text-cyan-400"
                     : "text-slate-700 hover:-translate-y-0.5 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-white"
@@ -93,9 +95,10 @@ export default function Header({ dark, setDark }: Props) {
             </NavLink>
           ))}
         </nav>
-        <div className="hidden shrink-0 items-center gap-2.5 lg:flex">
+
+        <div className="hidden shrink-0 items-center gap-2 lg:flex">
           <button
-            onClick={() => setDark(!dark)}
+            onClick={() => setDark((prev) => !prev)}
             className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-700 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md active:scale-95 dark:border-white/10 dark:bg-white/10 dark:text-white"
             aria-label="Toggle theme"
           >
@@ -113,9 +116,19 @@ export default function Header({ dark, setDark }: Props) {
             />
           </NavLink>
         </div>
+
         <div className="flex shrink-0 items-center gap-2 lg:hidden">
+          <NavLink
+            to="/team"
+            onClick={() => setOpen(false)}
+            className="flex h-9 w-9 items-center justify-center rounded-xl border border-blue-200 bg-blue-50 text-blue-600 shadow-sm transition-all duration-300 active:scale-95 dark:border-cyan-400/20 dark:bg-cyan-400/10 dark:text-cyan-300"
+            aria-label="Our Team"
+          >
+            <Users size={17} />
+          </NavLink>
+
           <button
-            onClick={() => setDark(!dark)}
+            onClick={() => setDark((prev) => !prev)}
             className="flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-700 shadow-sm transition-all duration-300 active:scale-95 dark:border-white/10 dark:bg-white/10 dark:text-white"
             aria-label="Toggle theme"
           >
@@ -131,33 +144,36 @@ export default function Header({ dark, setDark }: Props) {
           </button>
         </div>
       </div>
+
       <div
         className={`overflow-hidden border-t border-slate-200 bg-white/95 backdrop-blur-xl transition-all duration-500 ease-in-out dark:border-white/10 dark:bg-[#030712]/95 lg:hidden ${
-          open ? "max-h-140 opacity-100" : "max-h-0 border-t-0 opacity-0"
+          open ? "max-h-[520px] opacity-100" : "max-h-0 border-t-0 opacity-0"
         }`}
       >
         <nav className="flex flex-col gap-1 px-4 py-4">
-          {navItems.map((item) => {
-            const Icon = item.icon;
+          {navItems
+            .filter((item) => item.name !== "Our Team")
+            .map((item) => {
+              const Icon = item.icon;
 
-            return (
-              <NavLink
-                key={item.name}
-                to={item.href}
-                onClick={() => setOpen(false)}
-                className={({ isActive }) =>
-                  `flex items-center gap-4 rounded-2xl px-4 py-3.5 text-[15px] font-bold transition-all duration-300 active:scale-[0.98] ${
-                    isActive
-                      ? "bg-blue-600 text-white shadow-md"
-                      : "text-slate-700 hover:bg-slate-100 dark:text-zinc-300 dark:hover:bg-white/10"
-                  }`
-                }
-              >
-                <Icon size={18} />
-                {item.name}
-              </NavLink>
-            );
-          })}
+              return (
+                <NavLink
+                  key={item.name}
+                  to={item.href}
+                  onClick={() => setOpen(false)}
+                  className={({ isActive }) =>
+                    `flex items-center gap-4 rounded-2xl px-4 py-3.5 text-[15px] font-bold transition-all duration-300 active:scale-[0.98] ${
+                      isActive
+                        ? "bg-blue-600 text-white shadow-md"
+                        : "text-slate-700 hover:bg-slate-100 dark:text-zinc-300 dark:hover:bg-white/10"
+                    }`
+                  }
+                >
+                  <Icon size={18} />
+                  {item.name}
+                </NavLink>
+              );
+            })}
 
           <NavLink
             to="/contact"

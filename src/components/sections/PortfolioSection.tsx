@@ -1,58 +1,34 @@
 import { motion } from "framer-motion";
-import {
-  ArrowRight,
-  BarChart3,
-  Brain,
-  Building2,
-  Dumbbell,
-  ExternalLink,
-  Rocket,
-  ShoppingBag,
-  Sparkles,
-} from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 
 const projects = [
   {
     title: "AI Mentor Platform",
-    desc: "AI-powered learning platform offering personalized mentorship, courses, and doubt-solving.",
-    icon: Brain,
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "OpenAI"],
-    gradient: "from-purple-600/30 to-blue-600/20",
+    category: "AI Product",
+    desc: "AI-powered learning platform with mentorship, smart doubt solving, and personalized learning.",
+    image:
+      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop",
   },
   {
-    title: "Homely Real Estate",
-    desc: "Modern real estate platform to browse properties, connect with agents, and schedule visits.",
-    icon: Building2,
-    tags: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
-    gradient: "from-orange-500/25 to-blue-600/20",
+    title: "Real Estate Platform",
+    category: "Web Platform",
+    desc: "Modern property platform for listings, scheduling, and customer engagement.",
+    image:
+      "https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1200&auto=format&fit=crop",
   },
   {
-    title: "DataPro Dashboard",
-    desc: "Analytics dashboard for tracking performance, metrics, and business insights in real-time.",
-    icon: BarChart3,
-    tags: ["React", "Express.js", "Chart.js", "PostgreSQL"],
-    gradient: "from-blue-600/25 to-purple-600/20",
+    title: "Business Dashboard",
+    category: "Analytics",
+    desc: "Analytics dashboard for tracking reports, growth metrics, and business insights.",
+    image:
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop",
   },
   {
-    title: "FitTrack Mobile App",
-    desc: "Fitness tracking app with workout plans, progress tracking, and nutrition guidance.",
-    icon: Dumbbell,
-    tags: ["Flutter", "Firebase", "Dart", "Google Fit"],
-    gradient: "from-pink-600/25 to-purple-600/20",
-  },
-  {
-    title: "Luxe Fashion Store",
-    desc: "E-commerce platform with smooth shopping experience, secure payments, and order tracking.",
-    icon: ShoppingBag,
-    tags: ["Next.js", "Stripe", "CMS", "Tailwind CSS"],
-    gradient: "from-yellow-500/25 to-pink-600/20",
-  },
-  {
-    title: "SEO Boost Campaign",
-    desc: "SEO campaign that improved rankings, increased organic traffic, and boosted conversions.",
-    icon: Rocket,
-    tags: ["SEO", "Analytics", "Ahrefs", "Strategy"],
-    gradient: "from-purple-600/30 to-blue-600/25",
+    title: "Fitness Mobile App",
+    category: "Mobile App",
+    desc: "Fitness application with workout tracking, progress analytics, and nutrition guidance.",
+    image:
+      "https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1200&auto=format&fit=crop",
   },
 ];
 
@@ -60,112 +36,98 @@ export default function PortfolioSection() {
   return (
     <section
       id="portfolio"
-      className="relative overflow-hidden bg-slate-50 px-5 py-24 text-slate-950 transition-colors duration-300 dark:bg-[#020617] dark:text-white lg:px-8"
+      className="relative overflow-hidden bg-[#f6f9fc] px-4 py-16 text-[#10182f] sm:px-6 sm:py-20 lg:px-8 lg:py-24"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(37,99,235,0.14),transparent_30%),radial-gradient(circle_at_80%_20%,rgba(168,85,247,0.16),transparent_35%)] dark:bg-[radial-gradient(circle_at_20%_10%,rgba(37,99,235,0.25),transparent_30%),radial-gradient(circle_at_80%_20%,rgba(168,85,247,0.25),transparent_35%)]" />
+      <div className="absolute left-0 top-20 h-72 w-72 rounded-full bg-[#007185]/10 blur-3xl" />
+      <div className="absolute bottom-0 right-0 h-80 w-80 rounded-full bg-cyan-200/30 blur-3xl" />
 
       <div className="relative z-10 mx-auto max-w-7xl">
-        <div className="text-center">
-          <div className="mx-auto flex w-fit items-center gap-3 text-sm font-black uppercase tracking-[0.25em] text-purple-600 dark:text-purple-300">
-            <span className="h-px w-20 bg-purple-500" />
-            Our Portfolio
-            <span className="h-px w-20 bg-purple-500" />
+        <motion.div
+          initial={{ opacity: 0, y: 45, scale: 0.96 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true, amount: 0.35 }}
+          transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
+          className="mx-auto max-w-4xl text-center"
+        >
+          <div className="text-sm font-black uppercase tracking-[0.36em] text-[#007185] sm:text-base">
+            Completed Projects
           </div>
 
-          <h2 className="mt-5 text-5xl font-black sm:text-6xl lg:text-7xl">
-            Projects{" "}
-            <span className="bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent dark:from-blue-400 dark:to-purple-500">
-              We Build
-            </span>
+          <h2 className="mt-6 font-['Poppins'] text-[36px] font-black leading-[1.04] tracking-[-0.04em] text-[#10182f] sm:mt-7 sm:text-6xl lg:text-7xl">
+            Projects designed for{" "}
+            <span className="text-[#007185]">business growth.</span>
           </h2>
 
-          <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-slate-600 dark:text-white/70">
-            Explore a selection of impactful projects that demonstrate our
-            expertise, creativity, and commitment to quality.
+          <p className="mx-auto mt-5 max-w-3xl text-sm leading-7 text-slate-600 sm:mt-6 sm:text-lg sm:leading-8">
+            Explore some of our successfully completed projects built with
+            modern technology, clean UI/UX, and scalable architecture.
           </p>
+        </motion.div>
 
-          <div className="mx-auto mt-6 h-1 w-24 rounded-full bg-linear-to-r from-blue-500 to-purple-500" />
-        </div>
+        <div className="mt-12 grid gap-6 sm:mt-16 lg:grid-cols-2 lg:gap-8">
+          {projects.map((project, index) => (
+            <motion.div
+              key={project.title}
+              initial={{ opacity: 0, y: 60, scale: 0.92 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{
+                delay: index * 0.08,
+                duration: 0.7,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              whileHover={{ y: -10 }}
+              className="group overflow-hidden rounded-[26px] border border-slate-200 bg-white shadow-md transition-all duration-500 hover:border-[#007185]/30 hover:shadow-2xl sm:rounded-[30px]"
+            >
+              <div className="relative h-[220px] overflow-hidden sm:h-[260px] lg:h-[300px]">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                />
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-3">
-          {projects.map((project, index) => {
-            const Icon = project.icon;
+                <div className="absolute inset-0 bg-gradient-to-t from-[#10182f]/90 via-[#10182f]/20 to-transparent" />
 
-            return (
-              <motion.div
-                key={project.title}
-                initial={{ opacity: 0, y: 35 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.06 }}
-                className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-xl shadow-slate-200/50 transition hover:-translate-y-2 hover:border-purple-400 dark:border-white/10 dark:bg-white/5 dark:shadow-black/20"
-              >
-                <div
-                  className={`relative flex h-60 items-center justify-center overflow-hidden bg-linear-to-br ${project.gradient}`}
+                <div className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.2em] text-[#007185] shadow-md backdrop-blur-md sm:left-6 sm:top-6 sm:px-4 sm:py-2 sm:text-xs">
+                  {project.category}
+                </div>
+
+                <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6">
+                  <h3 className="font-['Poppins'] text-2xl font-black leading-tight text-white sm:text-3xl">
+                    {project.title}
+                  </h3>
+                </div>
+              </div>
+
+              <div className="p-5 sm:p-7">
+                <p className="text-sm leading-7 text-slate-600 sm:text-base">
+                  {project.desc}
+                </p>
+
+                <button
+                  type="button"
+                  className="mt-6 inline-flex items-center gap-3 text-sm font-black text-[#007185] transition-all duration-300 group-hover:gap-4 sm:mt-7"
                 >
-                  <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(255,255,255,0.35),transparent_55%)] dark:bg-[radial-gradient(circle,rgba(147,51,234,0.25),transparent_60%)]" />
+                  View Project
+                  <ArrowRight size={18} />
+                </button>
+              </div>
 
-                  <div className="absolute left-5 top-5 rounded-full border border-white/20 bg-white/20 px-3 py-1 text-xs font-black text-white backdrop-blur-xl">
-                    TechNova
-                  </div>
-
-                  <motion.div
-                    animate={{ y: [0, -10, 0] }}
-                    transition={{ duration: 4, repeat: Infinity }}
-                    className="relative flex h-28 w-28 items-center justify-center rounded-4xl border border-purple-300 bg-white/80 text-purple-600 shadow-2xl shadow-purple-300/40 backdrop-blur-xl dark:border-purple-400/40 dark:bg-white/10 dark:text-purple-300 dark:shadow-purple-500/30"
-                  >
-                    <Icon size={58} />
-                  </motion.div>
-                </div>
-
-                <div className="p-6">
-                  <div className="flex items-start gap-4">
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-purple-500/15 text-purple-600 dark:text-purple-300">
-                      <Icon size={25} />
-                    </div>
-
-                    <div>
-                      <h3 className="text-2xl font-black">{project.title}</h3>
-                      <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-white/65">
-                        {project.desc}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="mt-5 flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-full border border-slate-200 bg-slate-100 px-3 py-1 text-xs font-bold text-slate-600 dark:border-white/10 dark:bg-white/10 dark:text-white/70"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  <button
-                    type="button"
-                    className="mt-6 flex w-full items-center justify-end gap-3 font-black text-purple-600 transition group-hover:gap-5 dark:text-purple-300"
-                  >
-                    View Project
-                    <span className="flex h-9 w-9 items-center justify-center rounded-full border border-purple-400">
-                      <ExternalLink size={17} />
-                    </span>
-                  </button>
-                </div>
-              </motion.div>
-            );
-          })}
+              <div className="h-[4px] w-0 bg-[#007185] transition-all duration-500 group-hover:w-full" />
+            </motion.div>
+          ))}
         </div>
 
-        <div className="mt-12 flex justify-center">
+        <div className="mt-12 flex justify-center sm:mt-14">
           <button
             type="button"
-            className="flex items-center gap-4 rounded-3xl border border-purple-400 bg-white px-8 py-4 text-lg font-black text-purple-700 shadow-xl shadow-purple-200/60 transition hover:scale-[1.03] dark:bg-white/5 dark:text-purple-200 dark:shadow-purple-500/10"
+            className="group inline-flex items-center gap-4 rounded-xl bg-[#131921] px-7 py-4 text-sm font-black text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-[#007185] sm:px-8"
           >
-            <Sparkles size={22} />
             View All Projects
-            <ArrowRight size={22} />
+            <ArrowRight
+              size={20}
+              className="transition duration-300 group-hover:translate-x-1"
+            />
           </button>
         </div>
       </div>

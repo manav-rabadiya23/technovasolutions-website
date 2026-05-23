@@ -283,9 +283,9 @@ export default function HeroSection() {
                       y: -10,
                       scale: 1.03,
                     }}
-                    className={`absolute z-20 w-[112px] rounded-[20px] border border-white/12 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03))] p-[1px] shadow-[0_10px_50px_rgba(59,130,246,0.15)] backdrop-blur-2xl min-[390px]:w-[128px] sm:w-[185px] lg:w-[215px] ${item.className}`}
+                    className={`absolute z-20 w-[135px] rounded-[20px] border border-white/12 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03))] p-[1px] shadow-[0_10px_50px_rgba(59,130,246,0.15)] backdrop-blur-2xl min-[390px]:w-[150px] sm:w-[185px] lg:w-[215px] ${item.className}`}
                   >
-                    <div className="rounded-[19px] border border-white/8 bg-[#10172d]/90 px-2.5 py-2.5 sm:rounded-[25px] sm:px-4 sm:py-4 lg:px-5 lg:py-5">
+                    <div className="rounded-[19px] border border-white/8 bg-[#10172d]/90 px-2 py-2.5 sm:rounded-[25px] sm:px-4 sm:py-4 lg:px-5 lg:py-5">
                       {" "}
                       <div className="flex items-center gap-3 sm:gap-4">
                         <div className="relative flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-blue-400/20 bg-gradient-to-br from-[#1d4ed8]/30 to-[#7c3aed]/20 text-blue-200 shadow-[0_0_25px_rgba(59,130,246,0.25)] sm:h-14 sm:w-14 sm:rounded-2xl">
@@ -298,7 +298,7 @@ export default function HeroSection() {
                           />
                         </div>
 
-                        <h3 className="whitespace-pre-line break-words text-[9.5px] font-semibold leading-[1.25] tracking-[-0.01em] text-white min-[390px]:text-[11px] sm:text-[17px] lg:text-[18px]">
+                        <h3 className="whitespace-pre-line break-words text-[10.5px] font-semibold leading-[1.15] tracking-[-0.02em] text-white min-[390px]:text-[12px] sm:text-[17px] lg:text-[18px]">
                           {item.title}
                         </h3>
                       </div>

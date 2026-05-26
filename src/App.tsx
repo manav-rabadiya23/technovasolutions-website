@@ -13,30 +13,6 @@ import PortfolioSection from "./components/sections/PortfolioSection";
 import TeamSection from "./components/sections/TeamSection";
 import ScrollToTop from "./components/ScrollToTop";
 
-function HomePage() {
-  return <HeroSection />;
-}
-
-function ServicesPage() {
-  return <ServicesSection />;
-}
-
-function AboutPage() {
-  return <AboutSection />;
-}
-
-function InternshipPage() {
-  return <InternshipSection />;
-}
-
-function PortfolioPage() {
-  return <PortfolioSection />;
-}
-
-function ContactPage() {
-  return <ContactSection />;
-}
-
 export default function App() {
   const [dark, setDark] = useState(() =>
     document.documentElement.classList.contains("dark"),
@@ -48,24 +24,24 @@ export default function App() {
   }, [dark]);
 
   return (
-    <main className="min-h-screen bg-white pt-18 text-slate-950 transition-colors duration-300 dark:bg-[#050816] dark:text-white">
+    <div className="flex min-h-screen flex-col bg-white pt-[calc(56px+env(safe-area-inset-top))] text-slate-950 transition-colors duration-300 dark:bg-[#050816] dark:text-white sm:pt-[calc(64px+env(safe-area-inset-top))] lg:pt-[calc(72px+env(safe-area-inset-top))]">
       <Header dark={dark} setDark={setDark} />
 
       <ScrollToTop />
 
-      <div className="min-h-screen">
+      <main className="flex-1">
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/services" element={<ServicesPage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/internship" element={<InternshipPage />} />
-          <Route path="/portfolio" element={<PortfolioPage />} />
-          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/" element={<HeroSection />} />
+          <Route path="/services" element={<ServicesSection />} />
+          <Route path="/about" element={<AboutSection />} />
+          <Route path="/internship" element={<InternshipSection />} />
+          <Route path="/portfolio" element={<PortfolioSection />} />
+          <Route path="/contact" element={<ContactSection />} />
           <Route path="/team" element={<TeamSection />} />
         </Routes>
-      </div>
+      </main>
 
       <Footer />
-    </main>
+    </div>
   );
 }

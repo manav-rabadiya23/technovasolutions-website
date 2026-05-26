@@ -286,7 +286,6 @@ export default function HeroSection() {
                     className={`absolute z-20 w-[135px] rounded-[20px] border border-white/12 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03))] p-[1px] shadow-[0_10px_50px_rgba(59,130,246,0.15)] backdrop-blur-2xl min-[390px]:w-[150px] sm:w-[185px] lg:w-[215px] ${item.className}`}
                   >
                     <div className="rounded-[19px] border border-white/8 bg-[#10172d]/90 px-2 py-2.5 sm:rounded-[25px] sm:px-4 sm:py-4 lg:px-5 lg:py-5">
-                      {" "}
                       <div className="flex items-center gap-3 sm:gap-4">
                         <div className="relative flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-blue-400/20 bg-gradient-to-br from-[#1d4ed8]/30 to-[#7c3aed]/20 text-blue-200 shadow-[0_0_25px_rgba(59,130,246,0.25)] sm:h-14 sm:w-14 sm:rounded-2xl">
                           <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-400/10 to-violet-400/10" />

@@ -66,7 +66,7 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="bg-[#f3f3f3] px-4 py-20 text-slate-900 dark:bg-[#0f1111] dark:text-white sm:px-6 lg:px-8"
+      className="relative overflow-hidden bg-[#f3f3f3] px-4 pb-16 pt-16 text-slate-900 dark:bg-[#0f1111] dark:text-white sm:px-6 sm:pb-20 sm:pt-20 lg:px-8 lg:pt-24"
     >
       <div className="mx-auto max-w-7xl">
         {/* TOP ABOUT */}

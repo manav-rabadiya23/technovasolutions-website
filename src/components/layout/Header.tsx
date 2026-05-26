@@ -36,7 +36,8 @@ export default function Header({ dark, setDark }: Props) {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed left-0 top-0 z-[999] w-full border-b border-slate-200/80 bg-white/95 text-slate-950 shadow-sm backdrop-blur-xl transition-all duration-300 dark:border-white/10 dark:bg-[#030712]/95 dark:text-white">
+    <header className="fixed left-0 top-0 z-[999] w-full border-b border-slate-200/80 bg-white/95 pt-[env(safe-area-inset-top)] text-slate-950 shadow-sm backdrop-blur-xl transition-all duration-300 dark:border-white/10 dark:bg-[#030712]/95 dark:text-white">
+      {" "}
       <div className="mx-auto flex h-[56px] w-full max-w-[1500px] items-center justify-between px-4 sm:h-[64px] sm:px-6 lg:h-[72px] lg:px-8 xl:px-10">
         <NavLink
           to="/"
@@ -144,7 +145,6 @@ export default function Header({ dark, setDark }: Props) {
           </button>
         </div>
       </div>
-
       <div
         className={`overflow-hidden border-t border-slate-200 bg-white/95 backdrop-blur-xl transition-all duration-500 ease-in-out dark:border-white/10 dark:bg-[#030712]/95 lg:hidden ${
           open ? "max-h-[520px] opacity-100" : "max-h-0 border-t-0 opacity-0"

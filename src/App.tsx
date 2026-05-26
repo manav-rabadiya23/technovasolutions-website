@@ -20,7 +20,12 @@ export default function App() {
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", dark);
-    localStorage.setItem("theme", dark ? "dark" : "light");
+
+    try {
+      localStorage.setItem("theme", dark ? "dark" : "light");
+    } catch {
+      // Theme still updates even when browser storage is unavailable.
+    }
   }, [dark]);
 
   return (

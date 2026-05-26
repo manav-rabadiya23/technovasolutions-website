@@ -3,7 +3,15 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import "./index.css";
 
-const savedTheme = localStorage.getItem("theme");
+const getSavedTheme = () => {
+  try {
+    return localStorage.getItem("theme");
+  } catch {
+    return null;
+  }
+};
+
+const savedTheme = getSavedTheme();
 
 if (savedTheme === "light") {
   document.documentElement.classList.remove("dark");

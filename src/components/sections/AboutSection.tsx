@@ -66,11 +66,11 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="relative overflow-hidden bg-[#f3f3f3] px-4 pb-16 pt-16 text-slate-900 dark:bg-[#0f1111] dark:text-white sm:px-6 sm:pb-20 sm:pt-20 lg:px-8 lg:pt-24"
+      className="relative overflow-hidden bg-[#f3f3f3] px-4 pb-14 pt-14 text-slate-900 dark:bg-[#0f1111] dark:text-white sm:px-6 sm:pb-20 sm:pt-20 lg:px-8 lg:pt-24"
     >
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto w-full max-w-7xl">
         {/* TOP ABOUT */}
-        <div className="grid items-center gap-10 lg:grid-cols-[1fr_0.9fr]">
+        <div className="grid w-full items-center gap-10 lg:grid-cols-[1fr_0.9fr]">
           {/* LEFT */}
           <motion.div
             initial={{ opacity: 0, x: -28 }}
@@ -78,11 +78,11 @@ export default function AboutSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.55 }}
           >
-            <span className="text-sm font-bold uppercase tracking-[0.25em] text-[#007185] dark:text-[#ffd814]">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#007185] dark:text-[#ffd814] sm:text-sm sm:tracking-[0.25em]">
               About TechNova Solutions
             </span>
 
-            <h2 className="mt-5 text-4xl font-black leading-tight text-slate-950 dark:text-white sm:text-5xl lg:text-6xl">
+            <h2 className="mt-5 text-[clamp(2rem,8vw,2.5rem)] font-black leading-tight text-slate-950 dark:text-white sm:text-5xl lg:text-6xl">
               Digital intelligence made for{" "}
               <span className="text-[#007185] dark:text-[#ffd814]">
                 real business growth
@@ -99,7 +99,7 @@ export default function AboutSection() {
               {highlights.map((item) => (
                 <div
                   key={item}
-                  className="flex items-center gap-3 rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm font-bold text-slate-700 shadow-sm dark:border-white/10 dark:bg-[#131921] dark:text-white/75"
+                  className="flex min-w-0 items-center gap-3 rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm font-bold text-slate-700 shadow-sm dark:border-white/10 dark:bg-[#131921] dark:text-white/75"
                 >
                   <CheckCircle2 className="h-5 w-5 text-[#007185] dark:text-[#ffd814]" />
                   {item}
@@ -114,14 +114,14 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.55 }}
-            className="rounded-2xl border border-slate-300 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-[#131921] sm:p-8"
+            className="w-full max-w-full overflow-hidden rounded-2xl border border-slate-300 bg-white p-4 shadow-sm dark:border-white/10 dark:bg-[#131921] sm:p-8"
           >
-            <div className="rounded-2xl bg-[#f7fafa] p-6 dark:bg-[#232f3e] sm:p-8">
+            <div className="rounded-2xl bg-[#f7fafa] p-5 dark:bg-[#232f3e] sm:p-8">
               <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-[#007185] to-[#0099a8] text-white shadow-lg">
                 <Brain size={30} strokeWidth={2.2} />
               </div>
 
-              <h3 className="mt-7 text-3xl font-black leading-tight text-slate-950 dark:text-white sm:text-4xl">
+              <h3 className="mt-7 text-2xl font-black leading-tight text-slate-950 dark:text-white sm:text-4xl">
                 Practical technology with a clear business purpose.
               </h3>
 
@@ -139,7 +139,7 @@ export default function AboutSection() {
                 ].map((item) => (
                   <div
                     key={item}
-                    className="flex items-center gap-3 rounded-xl bg-white px-4 py-3 text-sm font-bold text-slate-700 shadow-sm dark:bg-[#131921] dark:text-white/75"
+                    className="flex min-w-0 items-center gap-3 rounded-xl bg-white px-4 py-3 text-sm font-bold text-slate-700 shadow-sm dark:bg-[#131921] dark:text-white/75"
                   >
                     <ShieldCheck className="h-5 w-5 text-[#007185] dark:text-[#ffd814]" />
                     {item}
@@ -151,7 +151,7 @@ export default function AboutSection() {
         </div>
 
         {/* PILLARS */}
-        <div className="mt-20">
+        <div className="mt-16 sm:mt-20">
           <motion.div
             initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -159,11 +159,11 @@ export default function AboutSection() {
             transition={{ duration: 0.55 }}
             className="mx-auto max-w-3xl text-center"
           >
-            <span className="text-sm font-bold uppercase tracking-[0.25em] text-[#007185] dark:text-[#ffd814]">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#007185] dark:text-[#ffd814] sm:text-sm sm:tracking-[0.25em]">
               Our Pillars
             </span>
 
-            <h3 className="mt-5 text-4xl font-black tracking-tight text-slate-950 dark:text-white sm:text-5xl">
+            <h3 className="mt-5 text-[clamp(2rem,8vw,2.5rem)] font-black leading-tight text-slate-950 dark:text-white sm:text-5xl">
               Strong foundation for modern digital success.
             </h3>
 
@@ -173,7 +173,7 @@ export default function AboutSection() {
             </p>
           </motion.div>
 
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+          <div className="mt-10 grid w-full gap-6 sm:mt-12 sm:grid-cols-2 xl:grid-cols-4">
             {pillars.map((item, index) => {
               const Icon = item.icon;
 
@@ -185,7 +185,7 @@ export default function AboutSection() {
                   viewport={{ once: true, margin: "-80px" }}
                   transition={{ duration: 0.45, delay: index * 0.05 }}
                   whileHover={{ y: -5 }}
-                  className="rounded-2xl border border-slate-300 bg-white p-6 shadow-sm transition hover:border-[#007185] hover:shadow-md dark:border-white/10 dark:bg-[#131921]"
+                  className="w-full max-w-full rounded-2xl border border-slate-300 bg-white p-5 shadow-sm transition hover:border-[#007185] hover:shadow-md dark:border-white/10 dark:bg-[#131921] sm:p-6"
                 >
                   <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-[#232f3e] text-white">
                     <Icon size={26} />
@@ -205,19 +205,19 @@ export default function AboutSection() {
         </div>
 
         {/* GROWTH BLOCK */}
-        <div className="mt-20 grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
+        <div className="mt-16 grid w-full gap-8 sm:mt-20 lg:grid-cols-[0.85fr_1.15fr]">
           <motion.div
             initial={{ opacity: 0, x: -28 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.55 }}
-            className="rounded-2xl bg-gradient-to-br from-[#131921] to-[#1f2d3d] p-8 text-white shadow-lg sm:p-10"
+            className="w-full max-w-full overflow-hidden rounded-2xl bg-gradient-to-br from-[#131921] to-[#1f2d3d] p-6 text-white shadow-lg sm:p-10"
           >
             <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#ffd814]">
               Scale Fast
             </span>
 
-            <h3 className="mt-5 text-3xl font-black leading-tight sm:text-4xl">
+            <h3 className="mt-5 text-2xl font-black leading-tight sm:text-4xl">
               Support for businesses, startups, and freelancers.
             </h3>
 
@@ -228,7 +228,7 @@ export default function AboutSection() {
             </p>
           </motion.div>
 
-          <div className="grid gap-5 sm:grid-cols-3 lg:grid-cols-1">
+          <div className="grid w-full gap-5 md:grid-cols-3 lg:grid-cols-1">
             {growthCards.map((item, index) => {
               const Icon = item.icon;
 
@@ -239,7 +239,7 @@ export default function AboutSection() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.45, delay: index * 0.06 }}
-                  className="rounded-2xl border border-slate-300 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-[#131921]"
+                  className="w-full max-w-full rounded-2xl border border-slate-300 bg-white p-5 shadow-sm dark:border-white/10 dark:bg-[#131921] sm:p-6"
                 >
                   <div className="flex gap-4">
                     <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#232f3e] text-white">
@@ -267,15 +267,15 @@ export default function AboutSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.55 }}
-          className="mt-16 rounded-2xl border border-slate-300 bg-white p-8 text-center shadow-sm dark:border-white/10 dark:bg-[#131921] sm:p-10"
+          className="mt-14 w-full max-w-full overflow-hidden rounded-2xl border border-slate-300 bg-white p-6 text-center shadow-sm dark:border-white/10 dark:bg-[#131921] sm:mt-16 sm:p-10"
         >
           <Search className="mx-auto h-10 w-10 text-[#007185] dark:text-[#ffd814]" />
 
-          <span className="mt-5 block text-xs font-bold uppercase tracking-[0.25em] text-[#007185] dark:text-[#ffd814]">
+          <span className="mt-5 block text-xs font-bold uppercase tracking-[0.2em] text-[#007185] dark:text-[#ffd814] sm:tracking-[0.25em]">
             Talent Hub
           </span>
 
-          <h3 className="mt-4 text-3xl font-black text-slate-950 dark:text-white sm:text-4xl">
+          <h3 className="mt-4 text-2xl font-black text-slate-950 dark:text-white sm:text-4xl">
             Grow with TechNova
           </h3>
 
@@ -286,7 +286,7 @@ export default function AboutSection() {
 
           <Link
             to="/internship"
-            className="mt-8 inline-flex items-center gap-3 rounded-xl bg-[#ffd814] px-8 py-4 text-sm font-bold text-[#111827] shadow-sm transition hover:bg-[#f7ca00]"
+            className="mt-8 inline-flex w-full items-center justify-center gap-3 rounded-xl bg-[#ffd814] px-6 py-4 text-sm font-bold text-[#111827] shadow-sm transition hover:bg-[#f7ca00] sm:w-auto sm:px-8"
           >
             Explore Opportunities
             <ArrowRight size={17} />

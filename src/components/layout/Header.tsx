@@ -38,11 +38,11 @@ export default function Header({ dark, setDark }: Props) {
   return (
     <header className="fixed left-0 top-0 z-[999] w-full border-b border-slate-200/80 bg-white/95 pt-[env(safe-area-inset-top)] text-slate-950 shadow-sm backdrop-blur-xl transition-all duration-300 dark:border-white/10 dark:bg-[#030712]/95 dark:text-white">
       {" "}
-      <div className="mx-auto flex h-[56px] w-full max-w-[1500px] items-center justify-between px-4 sm:h-[64px] sm:px-6 lg:h-[72px] lg:px-8 xl:px-10">
+      <div className="mx-auto flex h-[56px] w-full max-w-[1500px] items-center justify-between gap-2 px-3 sm:h-[64px] sm:px-6 lg:h-[72px] lg:px-8 xl:px-10">
         <NavLink
           to="/"
           onClick={() => setOpen(false)}
-          className="group flex min-w-0 shrink-0 items-center gap-2.5 sm:gap-3"
+          className="group flex min-w-0 max-w-[calc(100%-132px)] shrink items-center gap-2 sm:max-w-none sm:gap-3"
         >
           <img
             src={logo}
@@ -52,7 +52,7 @@ export default function Header({ dark, setDark }: Props) {
 
           <div className="min-w-0 leading-none">
             <h1
-              className="truncate text-[18px] font-semibold tracking-[-0.04em] sm:text-[22px] xl:text-[26px]"
+              className="truncate text-[16px] font-semibold sm:text-[22px] xl:text-[26px]"
               style={{ fontFamily: "'Georgia', 'Times New Roman', serif" }}
             >
               <span className="text-[#061B46] dark:text-white">TechNova</span>{" "}
@@ -70,7 +70,7 @@ export default function Header({ dark, setDark }: Props) {
           </div>
         </NavLink>
 
-        <nav className="hidden min-w-0 items-center justify-center gap-3 lg:flex xl:gap-5">
+        <nav className="hidden min-w-0 items-center justify-center gap-3 xl:flex xl:gap-5">
           {navItems.map((item) => (
             <NavLink
               key={item.name}
@@ -97,7 +97,7 @@ export default function Header({ dark, setDark }: Props) {
           ))}
         </nav>
 
-        <div className="hidden shrink-0 items-center gap-2 lg:flex">
+        <div className="hidden shrink-0 items-center gap-2 xl:flex">
           <button
             onClick={() => setDark((prev) => !prev)}
             className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-700 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md active:scale-95 dark:border-white/10 dark:bg-white/10 dark:text-white"
@@ -118,7 +118,7 @@ export default function Header({ dark, setDark }: Props) {
           </NavLink>
         </div>
 
-        <div className="flex shrink-0 items-center gap-2 lg:hidden">
+        <div className="flex shrink-0 items-center gap-2 xl:hidden">
           <NavLink
             to="/team"
             onClick={() => setOpen(false)}
@@ -146,7 +146,7 @@ export default function Header({ dark, setDark }: Props) {
         </div>
       </div>
       <div
-        className={`overflow-hidden border-t border-slate-200 bg-white/95 backdrop-blur-xl transition-all duration-500 ease-in-out dark:border-white/10 dark:bg-[#030712]/95 lg:hidden ${
+        className={`overflow-hidden border-t border-slate-200 bg-white/95 backdrop-blur-xl transition-all duration-500 ease-in-out dark:border-white/10 dark:bg-[#030712]/95 xl:hidden ${
           open ? "max-h-[520px] opacity-100" : "max-h-0 border-t-0 opacity-0"
         }`}
       >

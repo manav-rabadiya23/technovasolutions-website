@@ -5,10 +5,12 @@
 html {
   scroll-behavior: smooth;
   background: #050816;
+  overflow-x: hidden;
 }
 
 body {
   margin: 0;
+  min-width: 0;
   font-family: Inter, system-ui, sans-serif;
   background: #050816;
   overflow-x: hidden;
@@ -16,9 +18,27 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+#root {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
 * {
   box-sizing: border-box;
-  backface-visibility: hidden;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+button,
+span {
+  overflow-wrap: anywhere;
 }
 
 img,
@@ -26,4 +46,5 @@ video,
 canvas,
 svg {
   max-width: 100%;
+  height: auto;
 }

@@ -40,8 +40,8 @@ export default function Footer() {
       {/* BG EFFECT */}
       <div className="absolute -right-24 bottom-0 h-44 w-44 rounded-full bg-cyan-100/60 blur-3xl dark:bg-cyan-500/10" />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 py-7 sm:px-6 lg:px-8">
-        <div className="grid gap-7 sm:grid-cols-2 lg:grid-cols-[1.15fr_0.7fr_0.8fr_0.95fr]">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 py-7 sm:px-6 lg:px-8">
+        <div className="grid w-full gap-7 sm:grid-cols-2 lg:grid-cols-[1.15fr_0.7fr_0.8fr_0.95fr]">
           {/* BRAND */}
           <div className="text-center sm:col-span-2 lg:col-span-1 lg:text-left">
             <div className="flex flex-col items-center gap-2 sm:flex-row sm:justify-center lg:justify-start">
@@ -51,7 +51,7 @@ export default function Footer() {
                 className="h-12 w-12 rounded-full border border-slate-200 bg-white object-cover shadow-md dark:border-white/10"
               />
 
-              <div>
+              <div className="min-w-0">
                 <h2 className="font-serif text-2xl font-black leading-none text-[#081c4b] dark:text-white sm:text-3xl">
                   TechNova
                   <span className="block bg-gradient-to-r from-blue-600 to-sky-500 bg-clip-text text-transparent">
@@ -73,7 +73,7 @@ export default function Footer() {
 
           {/* QUICK LINKS */}
           <FooterColumn title="Quick Links">
-            <ul className="grid grid-cols-2 justify-items-center gap-x-10 gap-y-3 text-center lg:grid-cols-1 lg:justify-items-start lg:text-left lg:gap-y-2">
+            <ul className="grid grid-cols-2 justify-items-center gap-x-5 gap-y-3 text-center sm:gap-x-10 lg:grid-cols-1 lg:justify-items-start lg:text-left lg:gap-y-2">
               {quickLinks.map((link) => (
                 <li key={link.label}>
                   <button
@@ -196,8 +196,8 @@ function ContactLink({
     <a
       href={href}
       target={href.startsWith("http") ? "_blank" : undefined}
-      rel={href.startsWith("http") ? "noreferrer" : undefined}
-      className="flex min-w-0 items-center gap-3 rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 shadow-sm transition hover:-translate-y-1 hover:text-blue-600 dark:border-white/10 dark:bg-white/[0.04] dark:text-white/70 sm:text-sm"
+      rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+      className="flex min-w-0 max-w-full items-center gap-3 rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 shadow-sm transition hover:-translate-y-1 hover:text-blue-600 dark:border-white/10 dark:bg-white/[0.04] dark:text-white/70 sm:text-sm"
     >
       <span
         className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br ${color} text-white`}

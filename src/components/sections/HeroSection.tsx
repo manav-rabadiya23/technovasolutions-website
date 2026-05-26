@@ -90,7 +90,7 @@ export default function HeroSection() {
             transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
           />
 
-          <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-8 px-5 pb-14 pt-8 sm:gap-10 sm:pb-18 sm:pt-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12 lg:px-8 lg:pb-16 lg:pt-10">
+          <div className="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-8 px-4 pb-12 pt-7 sm:gap-10 sm:px-5 sm:pb-18 sm:pt-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12 lg:px-8 lg:pb-16 lg:pt-10">
             <motion.div
               initial={{ opacity: 0, y: 45 }}
               animate={{ opacity: 1, y: 0 }}
@@ -101,7 +101,7 @@ export default function HeroSection() {
                 initial={{ opacity: 0, y: 35, scale: 0.96 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 transition={{ delay: 0.15, duration: 0.8, ease: "easeOut" }}
-                className="mx-auto max-w-3xl font-['Poppins'] text-[34px] font-black leading-[1.05] tracking-[-0.03em] text-white sm:text-5xl lg:mx-0 lg:text-[58px] xl:text-[68px]"
+                className="mx-auto max-w-3xl font-['Poppins'] text-[clamp(2rem,10vw,2.5rem)] font-black leading-[1.05] text-white sm:text-5xl lg:mx-0 lg:text-[58px] xl:text-[68px]"
               >
                 <motion.span
                   initial={{ opacity: 0, y: 24 }}
@@ -158,11 +158,11 @@ export default function HeroSection() {
                 initial={{ opacity: 0, y: 22 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8, duration: 0.65 }}
-                className="mt-7 flex flex-col justify-center gap-4 sm:flex-row lg:justify-start"
+                className="mt-7 flex w-full flex-col justify-center gap-4 sm:flex-row lg:justify-start"
               >
                 <Link
                   to="/services"
-                  className="group inline-flex items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-blue-600 to-violet-600 px-8 py-4 text-sm font-bold text-white shadow-2xl shadow-blue-500/25 transition duration-300 hover:-translate-y-1"
+                  className="group inline-flex w-full items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-blue-600 to-violet-600 px-6 py-4 text-sm font-bold text-white shadow-2xl shadow-blue-500/25 transition duration-300 hover:-translate-y-1 sm:w-auto sm:px-8"
                 >
                   Explore Services
                   <ArrowRight
@@ -173,7 +173,7 @@ export default function HeroSection() {
 
                 <Link
                   to="/internship"
-                  className="inline-flex items-center justify-center gap-3 rounded-2xl border border-white/15 bg-white/5 px-8 py-4 text-sm font-bold text-white backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:bg-white/10"
+                  className="inline-flex w-full items-center justify-center gap-3 rounded-2xl border border-white/15 bg-white/5 px-6 py-4 text-sm font-bold text-white backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:bg-white/10 sm:w-auto sm:px-8"
                 >
                   Apply for Internship
                   <Users size={18} />
@@ -185,7 +185,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, scale: 0.9, y: 40 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ delay: 0.35, duration: 0.85, ease: "easeOut" }}
-              className="relative mx-auto h-[430px] w-full max-w-[720px] overflow-visible sm:h-[500px] lg:h-[540px]"
+              className="relative mx-auto h-[390px] w-full max-w-[720px] overflow-hidden min-[390px]:h-[430px] sm:h-[500px] lg:h-[540px]"
             >
               <motion.div
                 animate={{ scale: [1, 1.08, 1], opacity: [0.45, 0.75, 0.45] }}
@@ -283,7 +283,7 @@ export default function HeroSection() {
                       y: -10,
                       scale: 1.03,
                     }}
-                    className={`absolute z-20 w-[135px] rounded-[20px] border border-white/12 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03))] p-[1px] shadow-[0_10px_50px_rgba(59,130,246,0.15)] backdrop-blur-2xl min-[390px]:w-[150px] sm:w-[185px] lg:w-[215px] ${item.className}`}
+                    className={`absolute z-20 w-[118px] max-w-[44vw] rounded-[20px] border border-white/12 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03))] p-[1px] shadow-[0_10px_50px_rgba(59,130,246,0.15)] backdrop-blur-2xl min-[360px]:w-[135px] min-[390px]:w-[150px] sm:w-[185px] lg:w-[215px] ${item.className}`}
                   >
                     <div className="rounded-[19px] border border-white/8 bg-[#10172d]/90 px-2 py-2.5 sm:rounded-[25px] sm:px-4 sm:py-4 lg:px-5 lg:py-5">
                       <div className="flex items-center gap-3 sm:gap-4">
@@ -297,7 +297,7 @@ export default function HeroSection() {
                           />
                         </div>
 
-                        <h3 className="whitespace-pre-line break-words text-[10.5px] font-semibold leading-[1.15] tracking-[-0.02em] text-white min-[390px]:text-[12px] sm:text-[17px] lg:text-[18px]">
+                        <h3 className="whitespace-pre-line break-words text-[10px] font-semibold leading-[1.15] text-white min-[390px]:text-[12px] sm:text-[17px] lg:text-[18px]">
                           {item.title}
                         </h3>
                       </div>
@@ -331,14 +331,14 @@ export default function HeroSection() {
         </motion.div>
       </section>
 
-      <section className="relative overflow-hidden bg-white px-4 py-24 text-slate-900 transition-colors duration-500 dark:bg-[#050816] dark:text-white sm:px-5 sm:py-28">
+      <section className="relative overflow-hidden bg-white px-4 py-16 text-slate-900 transition-colors duration-500 dark:bg-[#050816] dark:text-white sm:px-5 sm:py-24">
         {" "}
         <div className="absolute inset-0">
           <div className="absolute left-0 top-0 h-[400px] w-[400px] rounded-full bg-blue-500/5 blur-[120px]" />
           <div className="absolute bottom-0 right-0 h-[400px] w-[400px] rounded-full bg-violet-500/5 blur-[120px]" />
           <div className="absolute inset-0 bg-[linear-gradient(rgba(15,23,42,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.03)_1px,transparent_1px)] bg-[size:70px_70px] dark:bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)]" />
         </div>
-        <div className="relative z-10 mx-auto max-w-7xl px-5 lg:px-8">
+        <div className="relative z-10 mx-auto w-full max-w-7xl px-0 sm:px-5 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -346,21 +346,21 @@ export default function HeroSection() {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="mx-auto max-w-3xl text-center"
           >
-            <h2 className="mt-7 text-center text-[32px] font-black leading-tight sm:text-5xl">
+            <h2 className="mt-7 text-center text-[clamp(1.9rem,8vw,2.25rem)] font-black leading-tight sm:text-5xl">
               <span className="block sm:inline">Specialized</span>
               <span className="block bg-gradient-to-r from-blue-600 via-cyan-500 to-violet-500 bg-clip-text text-transparent sm:ml-3 sm:inline">
                 Services
               </span>
             </h2>
 
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-600 dark:text-zinc-400">
+            <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-slate-600 dark:text-zinc-400 sm:text-lg">
               We provide elite digital marketing and high-performance
               development services tailored for modern businesses and
               future-ready digital experiences.
             </p>
           </motion.div>
 
-          <div className="mt-16 grid gap-7 lg:mt-20 lg:grid-cols-2">
+          <div className="mt-16 grid w-full gap-7 lg:mt-20 lg:grid-cols-2">
             {services.map((service, index) => {
               const Icon = service.icon;
 
@@ -376,7 +376,7 @@ export default function HeroSection() {
                     ease: "easeOut",
                   }}
                   whileHover={{ y: -10, scale: 1.015 }}
-                  className="group relative overflow-hidden rounded-[32px] border border-slate-200 bg-white/75 p-6 shadow-xl backdrop-blur-xl transition-colors duration-500 hover:shadow-2xl dark:border-white/10 dark:bg-white/[0.03] sm:p-8"
+                  className="group relative w-full max-w-full overflow-hidden rounded-[24px] border border-slate-200 bg-white/75 p-5 shadow-xl backdrop-blur-xl transition-colors duration-500 hover:shadow-2xl dark:border-white/10 dark:bg-white/[0.03] sm:rounded-[32px] sm:p-8"
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.04] to-violet-500/[0.04] opacity-0 transition duration-500 group-hover:opacity-100" />
 
@@ -441,7 +441,7 @@ export default function HeroSection() {
             </Link>
           </motion.div>
 
-          <div className="mt-20 grid gap-6 sm:grid-cols-2 lg:mt-24 lg:grid-cols-4">
+          <div className="mt-16 grid w-full gap-6 sm:grid-cols-2 lg:mt-24 lg:grid-cols-4">
             {stats.map((item, index) => (
               <motion.div
                 key={item.label}
@@ -454,13 +454,13 @@ export default function HeroSection() {
                   ease: "easeOut",
                 }}
                 whileHover={{ y: -8, scale: 1.025 }}
-                className="group relative overflow-hidden rounded-[32px] border border-slate-200 bg-white/80 px-7 py-10 text-center shadow-xl backdrop-blur-xl transition-colors duration-500 hover:shadow-2xl dark:border-white/10 dark:bg-white/[0.03]"
+                className="group relative w-full max-w-full overflow-hidden rounded-[24px] border border-slate-200 bg-white/80 px-5 py-8 text-center shadow-xl backdrop-blur-xl transition-colors duration-500 hover:shadow-2xl dark:border-white/10 dark:bg-white/[0.03] sm:rounded-[32px] sm:px-7 sm:py-10"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.05] via-cyan-500/[0.03] to-violet-500/[0.05] opacity-0 transition duration-500 group-hover:opacity-100" />
 
                 <div className="absolute left-1/2 top-0 h-[3px] w-0 -translate-x-1/2 rounded-full bg-gradient-to-r from-blue-500 via-cyan-400 to-violet-500 transition-all duration-500 group-hover:w-full" />
 
-                <h3 className="relative text-5xl font-black tracking-tight sm:text-6xl">
+                <h3 className="relative text-4xl font-black tracking-tight sm:text-6xl">
                   <span className="bg-gradient-to-r from-[#2563eb] via-[#4f46e5] to-[#7c3aed] bg-clip-text text-transparent">
                     {item.value}
                   </span>

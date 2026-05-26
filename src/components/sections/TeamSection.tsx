@@ -90,11 +90,11 @@ const appDevelopers: Member[] = [
 function SectionTitle({ eyebrow, title }: { eyebrow: string; title: string }) {
   return (
     <div className="mb-10">
-      <p className="text-xs font-black uppercase tracking-[0.32em] text-[#007c89] dark:text-cyan-300">
+      <p className="text-xs font-black uppercase tracking-[0.2em] text-[#007c89] dark:text-cyan-300 sm:tracking-[0.32em]">
         {eyebrow}
       </p>
 
-      <h2 className="mt-3 text-3xl font-black tracking-[-0.03em] text-[#111827] dark:text-white sm:text-4xl">
+      <h2 className="mt-3 text-2xl font-black text-[#111827] dark:text-white sm:text-4xl">
         {title}
       </h2>
     </div>
@@ -110,9 +110,9 @@ function MemberCard({ member, index }: { member: Member; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: index * 0.08 }}
       viewport={{ once: true }}
-      className="group overflow-hidden rounded-[26px] border border-slate-200 bg-white shadow-lg shadow-slate-200/70 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl dark:border-white/10 dark:bg-[#111827] dark:shadow-black/30"
+      className="group w-full max-w-full overflow-hidden rounded-[24px] border border-slate-200 bg-white shadow-lg shadow-slate-200/70 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl dark:border-white/10 dark:bg-[#111827] dark:shadow-black/30 sm:rounded-[26px]"
     >
-      <div className="relative h-[280px] overflow-hidden">
+      <div className="relative h-[240px] overflow-hidden sm:h-[280px]">
         <img
           src={member.image}
           alt={member.name}
@@ -157,11 +157,11 @@ function MemberCard({ member, index }: { member: Member; index: number }) {
 export default function TeamSection() {
   return (
     <main className="min-h-screen overflow-hidden bg-[#f5f7fb] dark:bg-[#050816]">
-      <section className="relative px-4 pb-24 pt-10 sm:px-6 lg:px-8 lg:pt-16">
+      <section className="relative overflow-hidden px-4 pb-16 pt-10 sm:px-6 sm:pb-24 lg:px-8 lg:pt-16">
         {/* Background Glow */}
         <div className="absolute left-1/2 top-0 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-cyan-400/10 blur-3xl" />
 
-        <div className="relative mx-auto max-w-7xl">
+        <div className="relative mx-auto w-full max-w-7xl">
           {/* HERO */}
           <motion.div
             initial={{ opacity: 0, y: 25 }}
@@ -169,15 +169,15 @@ export default function TeamSection() {
             transition={{ duration: 0.65 }}
             className="mx-auto max-w-5xl text-center"
           >
-            <p className="text-xs font-black uppercase tracking-[0.38em] text-[#007c89] dark:text-cyan-300">
+            <p className="text-xs font-black uppercase tracking-[0.22em] text-[#007c89] dark:text-cyan-300 sm:tracking-[0.38em]">
               OUR TEAM
             </p>
             <h1
-              className="mt-6 text-4xl font-black leading-[1.12] tracking-[-0.025em] text-[#111827] dark:text-white sm:text-6xl lg:text-7xl"
+              className="mt-6 text-[clamp(2rem,9vw,2.5rem)] font-black leading-[1.12] text-[#111827] dark:text-white sm:text-6xl lg:text-7xl"
               style={{ fontFamily: "'Georgia', serif" }}
             >
               Leadership That Drives
-              <span className="block leading-[1.12] tracking-[-0.015em] text-[#007c89] dark:text-cyan-300">
+              <span className="block leading-[1.12] text-[#007c89] dark:text-cyan-300">
                 {" "}
                 Digital Growth
               </span>
@@ -191,14 +191,14 @@ export default function TeamSection() {
           </motion.div>
 
           {/* LEADERSHIP */}
-          <div className="mt-20 grid gap-8 lg:grid-cols-[0.75fr_1.25fr]">
+          <div className="mt-16 grid w-full gap-8 sm:mt-20 lg:grid-cols-[0.75fr_1.25fr]">
             {/* Left Creative Card */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.65 }}
               viewport={{ once: true }}
-              className="relative overflow-hidden rounded-[30px] bg-[#111827] p-8 text-white shadow-2xl shadow-slate-300/60 dark:shadow-black/30"
+              className="relative w-full max-w-full overflow-hidden rounded-[24px] bg-[#111827] p-6 text-white shadow-2xl shadow-slate-300/60 dark:shadow-black/30 sm:rounded-[30px] sm:p-8"
             >
               <div className="absolute right-0 top-0 h-48 w-48 rounded-full bg-cyan-400/20 blur-3xl" />
 
@@ -207,11 +207,11 @@ export default function TeamSection() {
                   <MessageCircle size={26} />
                 </div>
 
-                <p className="mt-7 text-xs font-black uppercase tracking-[0.3em] text-cyan-300">
+                <p className="mt-7 text-xs font-black uppercase tracking-[0.2em] text-cyan-300 sm:tracking-[0.3em]">
                   Company Vision
                 </p>
 
-                <h2 className="mt-4 text-3xl font-black leading-tight tracking-[-0.03em] sm:text-4xl">
+                <h2 className="mt-4 text-2xl font-black leading-tight sm:text-4xl">
                   Building trusted digital experiences through innovation.
                 </h2>
 
@@ -230,7 +230,7 @@ export default function TeamSection() {
                   ].map((item) => (
                     <div
                       key={item}
-                      className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.06] px-4 py-4 text-sm font-semibold backdrop-blur-xl"
+                      className="flex min-w-0 items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.06] px-4 py-4 text-sm font-semibold backdrop-blur-xl"
                     >
                       <span className="h-2.5 w-2.5 rounded-full bg-[#ffd213]" />
                       {item}
@@ -247,7 +247,7 @@ export default function TeamSection() {
                 title="Founder & Co-Founder"
               />
 
-              <div className="grid gap-6 md:grid-cols-2">
+              <div className="grid w-full gap-6 md:grid-cols-2">
                 {leadershipTeam.map((member, index) => (
                   <MemberCard key={member.name} member={member} index={index} />
                 ))}
@@ -256,10 +256,10 @@ export default function TeamSection() {
           </div>
 
           {/* TEAM LEAD */}
-          <div className="mt-24">
+          <div className="mt-16 sm:mt-24">
             <SectionTitle eyebrow="Core Team" title="Team Lead" />
 
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid w-full gap-6 md:grid-cols-2 lg:grid-cols-3">
               {teamLead.map((member, index) => (
                 <MemberCard key={member.name} member={member} index={index} />
               ))}
@@ -267,10 +267,10 @@ export default function TeamSection() {
           </div>
 
           {/* WEB TEAM */}
-          <div className="mt-24">
+          <div className="mt-16 sm:mt-24">
             <SectionTitle eyebrow="Development Team" title="Web Developers" />
 
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid w-full gap-6 md:grid-cols-2 lg:grid-cols-3">
               {webDevelopers.map((member, index) => (
                 <MemberCard key={member.name} member={member} index={index} />
               ))}
@@ -278,10 +278,10 @@ export default function TeamSection() {
           </div>
 
           {/* APP TEAM */}
-          <div className="mt-24">
+          <div className="mt-16 sm:mt-24">
             <SectionTitle eyebrow="Mobile Team" title="App Developers" />
 
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid w-full gap-6 md:grid-cols-2 lg:grid-cols-3">
               {appDevelopers.map((member, index) => (
                 <MemberCard key={member.name} member={member} index={index} />
               ))}
@@ -294,15 +294,15 @@ export default function TeamSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65 }}
             viewport={{ once: true }}
-            className="mt-24 flex flex-col items-center justify-between gap-6 rounded-[30px] border border-slate-200 bg-white p-7 shadow-2xl shadow-slate-200/70 dark:border-white/10 dark:bg-[#111827] dark:shadow-black/30 sm:flex-row sm:p-10"
+            className="mt-16 flex w-full max-w-full flex-col items-center justify-between gap-6 overflow-hidden rounded-[24px] border border-slate-200 bg-white p-6 shadow-2xl shadow-slate-200/70 dark:border-white/10 dark:bg-[#111827] dark:shadow-black/30 sm:mt-24 sm:flex-row sm:rounded-[30px] sm:p-10"
           >
-            <div className="flex items-center gap-5 text-center sm:text-left">
+            <div className="flex min-w-0 items-center gap-5 text-center sm:text-left">
               <div className="hidden h-16 w-16 items-center justify-center rounded-2xl bg-[#007c89] text-white shadow-lg shadow-cyan-400/30 sm:flex">
                 <Send size={28} />
               </div>
 
               <div>
-                <h2 className="text-2xl font-black tracking-tight text-[#111827] dark:text-white sm:text-3xl">
+                <h2 className="text-xl font-black text-[#111827] dark:text-white sm:text-3xl">
                   Ready to build your next digital product?
                 </h2>
 
@@ -315,7 +315,7 @@ export default function TeamSection() {
 
             <a
               href="/contact"
-              className="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-[#ffd213] px-8 py-4 text-sm font-black text-black shadow-lg shadow-yellow-300/40 transition-all duration-300 hover:-translate-y-1 hover:bg-[#ffdd35] active:scale-95 sm:w-auto"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-[#ffd213] px-6 py-4 text-sm font-black text-black shadow-lg shadow-yellow-300/40 transition-all duration-300 hover:-translate-y-1 hover:bg-[#ffdd35] active:scale-95 sm:w-auto sm:px-8"
             >
               Contact Us
               <ArrowRight size={18} />

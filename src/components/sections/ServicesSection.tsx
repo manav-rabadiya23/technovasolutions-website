@@ -80,9 +80,9 @@ export default function ServicesSection() {
   return (
     <section
       id="services"
-      className="bg-[#f3f3f3] px-4 py-20 text-slate-900 dark:bg-[#0f1111] dark:text-white sm:px-6 lg:px-8"
+      className="overflow-hidden bg-[#f3f3f3] px-4 py-16 text-slate-900 dark:bg-[#0f1111] dark:text-white sm:px-6 sm:py-20 lg:px-8"
     >
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto w-full max-w-7xl">
         {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 28 }}
@@ -91,11 +91,11 @@ export default function ServicesSection() {
           transition={{ duration: 0.55 }}
           className="mx-auto max-w-4xl text-center"
         >
-          <span className="text-sm font-bold uppercase tracking-[0.25em] text-[#007185] dark:text-[#ffd814]">
+          <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#007185] dark:text-[#ffd814] sm:text-sm sm:tracking-[0.25em]">
             Services We Provide
           </span>
 
-          <h2 className="mt-5 text-4xl font-black tracking-tight text-slate-950 dark:text-white sm:text-5xl lg:text-6xl">
+          <h2 className="mt-5 text-[clamp(2rem,8vw,2.5rem)] font-black leading-tight text-slate-950 dark:text-white sm:text-5xl lg:text-6xl">
             Smart digital services for{" "}
             <span className="text-[#007185] dark:text-[#ffd814]">
               business growth
@@ -110,7 +110,7 @@ export default function ServicesSection() {
         </motion.div>
 
         {/* Services */}
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+        <div className="mt-12 grid w-full gap-6 sm:grid-cols-2 xl:grid-cols-4">
           {services.map((service, index) => {
             const Icon = service.icon;
 
@@ -122,7 +122,7 @@ export default function ServicesSection() {
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ duration: 0.45, delay: index * 0.04 }}
                 whileHover={{ y: -5 }}
-                className="group flex h-full flex-col rounded-2xl border border-slate-300 bg-white p-6 shadow-sm transition hover:border-[#007185] hover:shadow-md dark:border-white/10 dark:bg-[#131921]"
+                className="group flex h-full w-full max-w-full flex-col overflow-hidden rounded-2xl border border-slate-300 bg-white p-5 shadow-sm transition hover:border-[#007185] hover:shadow-md dark:border-white/10 dark:bg-[#131921] sm:p-6"
               >
                 <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-[#232f3e] text-white transition group-hover:scale-105">
                   <Icon size={27} strokeWidth={2.2} />
@@ -149,19 +149,19 @@ export default function ServicesSection() {
         </div>
 
         {/* Why Choose */}
-        <div className="mt-16 grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="mt-14 grid w-full gap-8 lg:mt-16 lg:grid-cols-[0.9fr_1.1fr]">
           <motion.div
             initial={{ opacity: 0, x: -28 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.55 }}
-            className="rounded-2xl bg-[#131921] p-8 text-white shadow-lg sm:p-10"
+            className="w-full max-w-full overflow-hidden rounded-2xl bg-[#131921] p-6 text-white shadow-lg sm:p-10"
           >
             <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#ffd814]">
               Why TechNova
             </span>
 
-            <h3 className="mt-5 text-3xl font-black leading-tight sm:text-4xl">
+            <h3 className="mt-5 text-2xl font-black leading-tight sm:text-4xl">
               Digital work that looks professional and brings customers closer.
             </h3>
 
@@ -172,14 +172,14 @@ export default function ServicesSection() {
 
             <Link
               to="/contact"
-              className="mt-8 inline-flex items-center gap-3 rounded-xl bg-[#ffd814] px-7 py-4 text-sm font-bold text-[#111827] shadow-sm transition hover:bg-[#f7ca00]"
+              className="mt-8 inline-flex w-full items-center justify-center gap-3 rounded-xl bg-[#ffd814] px-6 py-4 text-sm font-bold text-[#111827] shadow-sm transition hover:bg-[#f7ca00] sm:w-auto sm:px-7"
             >
               Discuss Your Project
               <ArrowRight size={17} />
             </Link>
           </motion.div>
 
-          <div className="grid gap-5 sm:grid-cols-3 lg:grid-cols-1">
+          <div className="grid w-full gap-5 md:grid-cols-3 lg:grid-cols-1">
             {strengths.map((item, index) => {
               const Icon = item.icon;
 
@@ -190,7 +190,7 @@ export default function ServicesSection() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.45, delay: index * 0.06 }}
-                  className="rounded-2xl border border-slate-300 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-[#131921]"
+                  className="w-full max-w-full rounded-2xl border border-slate-300 bg-white p-5 shadow-sm dark:border-white/10 dark:bg-[#131921] sm:p-6"
                 >
                   <div className="flex items-start gap-4">
                     <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#232f3e] text-white">

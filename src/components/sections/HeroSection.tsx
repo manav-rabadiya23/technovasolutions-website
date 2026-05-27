@@ -128,7 +128,7 @@ export default function HeroSection() {
                 initial={{ opacity: 0, y: 35, scale: 0.96 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 transition={{ delay: 0.15, duration: 0.8, ease: "easeOut" }}
-                className="mx-auto max-w-3xl font-['Playfair_Display'] text-[clamp(3rem,8vw,6.2rem)] font-semibold leading-[0.88] tracking-[-0.07em] text-white lg:mx-0"
+                className="hero-heading-font mx-auto max-w-3xl text-[clamp(3rem,8vw,6.2rem)] leading-[0.88] tracking-[-0.07em] text-white antialiased lg:mx-0"
                 style={{
                   WebkitFontSmoothing: "antialiased",
                   MozOsxFontSmoothing: "grayscale",
@@ -139,11 +139,9 @@ export default function HeroSection() {
                 <br />
                 Intelligent
                 <br />
-                Solutions for the
+                Solutions for
                 <br />
-                <span className="bg-gradient-to-r from-cyan-300 via-blue-400 to-violet-400 bg-clip-text text-transparent">
-                  Future
-                </span>
+                the Future
               </motion.h1>
 
               <p className="mx-auto mt-7 max-w-2xl font-['Playfair_Display'] text-base leading-8 text-white/75 sm:text-lg lg:mx-0">

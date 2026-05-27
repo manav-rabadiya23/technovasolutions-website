@@ -128,7 +128,12 @@ export default function HeroSection() {
                 initial={{ opacity: 0, y: 35, scale: 0.96 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 transition={{ delay: 0.15, duration: 0.8, ease: "easeOut" }}
-                className="mx-auto max-w-3xl font-['Poppins'] text-[clamp(2.4rem,7vw,4.2rem)] font-semibold leading-[1.02] tracking-[-0.04em] text-white antialiased lg:mx-0"
+                className="mx-auto max-w-3xl font-['Poppins'] text-[clamp(3rem,8vw,6.2rem)] font-semibold leading-[0.9] tracking-[-0.07em] text-white lg:mx-0"
+                style={{
+                  WebkitFontSmoothing: "antialiased",
+                  MozOsxFontSmoothing: "grayscale",
+                  textRendering: "geometricPrecision",
+                }}
               >
                 Building
                 <br />

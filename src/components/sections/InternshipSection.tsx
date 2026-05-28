@@ -1,12 +1,17 @@
 import { motion } from "framer-motion";
 import {
   ArrowRight,
+  Award,
   Brush,
   CheckCircle2,
+  ClipboardCheck,
   Code2,
+  Flag,
+  MapPin,
   Search,
   ShieldCheck,
   Smartphone,
+  UsersRound,
   WandSparkles,
 } from "lucide-react";
 
@@ -16,51 +21,71 @@ const applyLink =
 const process = [
   {
     step: "01",
-    title: "Application Submission",
-    desc: "Submit your application form. Selected candidates receive an official Internship Offer Letter within 24 hours.",
+    title: "Apply Online",
+    desc: "Submit your internship application through the official form.",
+    icon: ClipboardCheck,
   },
   {
     step: "02",
-    title: "Task Assignment",
-    desc: "You will receive a practical task/project related to your selected internship domain.",
+    title: "Offer Letter",
+    desc: "Selected candidates receive an official internship offer letter within 24 hours.",
+    icon: MapPin,
   },
   {
     step: "03",
-    title: "Mentor Guidance",
-    desc: "Work with mentor guidance, modern tools, and collaborative learning throughout the internship.",
+    title: "Project Task",
+    desc: "You will get a practical task based on your selected internship domain.",
+    icon: Flag,
   },
   {
     step: "04",
-    title: "Certificate Process",
-    desc: "After successful completion, interns can receive their certificate with a one-time ₹149 processing fee.",
+    title: "Mentor Support",
+    desc: "Complete your work with mentor guidance, modern tools, and proper learning flow.",
+    icon: UsersRound,
+  },
+  {
+    step: "05",
+    title: "Certificate",
+    desc: "After successful completion, interns can receive their certificate with ₹149 processing fee.",
+    icon: Award,
   },
 ];
 
 const domains = [
   {
     title: "Prompt Engineering",
-    desc: "Learn advanced AI prompting, workflow automation, and practical business AI usage.",
+    desc: "Learn to think with AI and create powerful prompts for practical solutions.",
     icon: WandSparkles,
+    gradient: "from-cyan-500 to-blue-600",
+    points: ["AI Thinking", "Workflow Practice", "Business Use Cases"],
   },
   {
     title: "AI-Powered Web Development",
-    desc: "Build modern responsive websites using React, AI tools, and production-level UI/UX.",
+    desc: "Build responsive modern web experiences with creative interfaces.",
     icon: Code2,
+    gradient: "from-violet-500 to-fuchsia-600",
+    points: ["Website Building", "Responsive Interfaces", "Modern UI/UX"],
   },
   {
     title: "AI-Powered App Development",
-    desc: "Create modern mobile app concepts with smooth experiences and useful features.",
+    desc: "Design app experiences users love with creative screen flows.",
     icon: Smartphone,
+    gradient: "from-blue-500 to-cyan-500",
+    points: ["App Experiences", "Creative Screens", "User Journey"],
   },
   {
     title: "SEO Optimization",
-    desc: "Learn keyword research, optimization, analytics, and ranking strategies.",
+    desc: "Understand search strategies and improve visibility with smart techniques.",
     icon: Search,
+    gradient: "from-emerald-500 to-lime-500",
+    points: ["Search Visibility", "Growth Strategy", "Optimization Skills"],
   },
   {
     title: "Web Design",
-    desc: "Master typography, spacing, layouts, color systems, and premium modern design.",
+    desc: "Create stunning modern designs with premium layouts and creativity.",
     icon: Brush,
+    gradient: "from-orange-500 to-pink-500",
+    points: ["Creative Layouts", "Design Systems", "User Experience"],
   },
 ];
 
@@ -77,7 +102,6 @@ export default function InternshipSection() {
       id="internship"
       className="relative overflow-hidden bg-[#f6f7f8] px-4 py-8 text-[#020617] dark:bg-[#020617] dark:text-white sm:px-6 sm:py-12 lg:px-8"
     >
-      {/* Background Effects */}
       <div className="absolute left-[-140px] top-24 h-72 w-72 rounded-full bg-[#007f8f]/10 blur-3xl" />
       <div className="absolute right-[-140px] top-96 h-72 w-72 rounded-full bg-[#ffd814]/20 blur-3xl" />
 
@@ -88,7 +112,7 @@ export default function InternshipSection() {
             initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-xs font-black uppercase tracking-[0.28em] text-[#007f8f]"
+            className="text-lg font-black uppercase tracking-[0.28em] text-[#007f8f]"
           >
             TechNova Internship Program
           </motion.p>
@@ -99,8 +123,7 @@ export default function InternshipSection() {
           >
             Start your
             <span className="block leading-[1.12] text-[#007c89] dark:text-cyan-300">
-              {" "}
-              intership Journey{" "}
+              Internship Journey
             </span>
           </h1>
 
@@ -126,7 +149,6 @@ export default function InternshipSection() {
           <div className="absolute right-[-120px] top-0 h-72 w-72 rounded-full bg-yellow-400/20 blur-3xl" />
 
           <div className="grid lg:grid-cols-[1fr_390px] xl:grid-cols-[1fr_420px]">
-            {/* LEFT */}
             <div className="relative overflow-hidden p-6 sm:p-8 lg:p-10 xl:p-12">
               <div className="absolute left-0 top-0 h-full w-28 bg-gradient-to-r from-cyan-50 to-transparent dark:from-cyan-500/5" />
 
@@ -139,7 +161,6 @@ export default function InternshipSection() {
                   <p className="text-[10px] font-black uppercase tracking-[0.3em] text-[#007f8f] sm:text-xs">
                     Trust & Authenticity
                   </p>
-
                   <div className="mt-2 h-[3px] w-20 rounded-full bg-gradient-to-r from-[#007f8f] to-transparent" />
                 </div>
               </div>
@@ -185,38 +206,34 @@ export default function InternshipSection() {
               </div>
             </div>
 
-            {/* RIGHT */}
             <div className="relative min-h-[340px] overflow-hidden bg-gradient-to-br from-[#ffe24d] via-[#ffd814] to-[#ffc400] p-7 lg:min-h-0 lg:p-8">
               <div className="absolute right-[-40px] top-[-40px] h-64 w-64 rounded-full bg-white/20 blur-3xl" />
-
-              {/* CURVE */}
               <div className="absolute -left-24 top-0 hidden h-full w-[190px] rounded-r-full border-r-[8px] border-[#007f8f] bg-[#f8f4df] lg:block" />
 
-              {/* FIXED OVERLAP */}
               <div className="relative z-10 mx-auto flex h-full max-w-[270px] flex-col items-center justify-center text-center lg:ml-auto lg:mr-0">
-                {" "}
                 <div className="relative">
                   <div className="absolute inset-0 rounded-full bg-white/30 blur-2xl" />
-
                   <div className="relative flex h-36 w-36 items-center justify-center rounded-full border-[8px] border-yellow-100 bg-white shadow-[0_20px_50px_rgba(0,0,0,0.12)]">
                     <CheckCircle2 size={58} className="text-[#007f8f]" />
                   </div>
                 </div>
+
                 <h3 className="mt-7 text-center text-[1.7rem] font-black leading-tight tracking-[-0.03em] text-[#020617] sm:text-3xl">
                   Verified Business
                 </h3>
+
                 <p className="mt-3 whitespace-nowrap text-[10px] font-black uppercase tracking-[0.22em] text-slate-800/80 sm:text-xs">
                   Government Recognized
                 </p>
+
                 <div className="mt-5 flex items-center justify-center gap-3">
                   <div className="h-[2px] w-12 bg-slate-900/30" />
-
                   <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#007f8f] text-white shadow-lg">
                     <ShieldCheck size={15} />
                   </div>
-
                   <div className="h-[2px] w-12 bg-slate-900/30" />
                 </div>
+
                 <div className="mt-6 whitespace-nowrap rounded-full bg-[#007f8f] px-6 py-3 text-[10px] font-black uppercase tracking-[0.18em] text-white shadow-2xl shadow-cyan-900/30 sm:text-xs">
                   Government Recognized
                 </div>
@@ -225,97 +242,231 @@ export default function InternshipSection() {
           </div>
         </motion.div>
 
-        {/* PROCESS */}
-        <div className="mt-20">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="text-xs font-black uppercase tracking-[0.25em] text-[#007f8f]">
-              Internship Process
+        {/* PROCESS ROADMAP */}
+        <div className="relative mt-14 overflow-hidden rounded-[3rem] border border-cyan-100 bg-[radial-gradient(circle_at_top,#ffffff_0%,#f4fbfc_45%,#e8f7f8_100%)] px-4 py-10 shadow-[0_30px_100px_rgba(15,23,42,0.08)] dark:border-white/10 dark:bg-[radial-gradient(circle_at_top,#0f172a_0%,#06111f_50%,#020617_100%)] sm:px-6 lg:px-10">
+          <div className="absolute -left-24 top-24 h-72 w-72 rounded-full bg-cyan-300/20 blur-3xl" />
+          <div className="absolute -right-24 bottom-20 h-72 w-72 rounded-full bg-yellow-300/20 blur-3xl" />
+
+          <div className="relative mx-auto max-w-4xl text-center">
+            <p className="text-xs font-black uppercase tracking-[0.45em] text-[#007f8f]">
+              Internship Roadmap
             </p>
 
-            <h3 className="mt-4 text-[clamp(2rem,5vw,3.5rem)] font-serif font-black leading-tight tracking-tight">
-              Simple, transparent & beginner-friendly
+            <div className="mx-auto mt-4 flex items-center justify-center gap-2">
+              <span className="h-1 w-20 rounded-full bg-[#007f8f]" />
+              <span className="h-2 w-2 rounded-full bg-[#007f8f]" />
+            </div>
+
+            <h3 className="mt-6 font-serif text-[clamp(2.1rem,5vw,4.4rem)] font-black leading-[1.05] tracking-[-0.045em] text-[#020617] dark:text-white">
+              Your Journey from
+              <br />
+              Application to Certificate
             </h3>
+
+            <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-slate-600 dark:text-white/65 sm:text-base">
+              A clear step-by-step internship path designed for students,
+              beginners, and future digital creators.
+            </p>
           </div>
 
-          <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-            {process.map((item, index) => (
-              <motion.div
-                key={item.step}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.08 }}
-                whileHover={{ y: -5 }}
-                className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-lg shadow-slate-900/5 transition hover:border-[#007f8f]/40 dark:border-white/10 dark:bg-[#111827]"
-              >
-                <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#007f8f] text-lg font-black text-white">
-                  {item.step}
-                </div>
+          <div className="relative mx-auto mt-14 max-w-7xl">
+            <div className="absolute left-[8%] right-[8%] top-[50px] hidden lg:block">
+              <div className="relative h-4 rounded-full bg-gradient-to-r from-[#007f8f] via-[#22c7c9] via-[#65b741] to-[#ffd814] shadow-[0_16px_40px_rgba(34,211,238,0.28)]">
+                <div className="absolute inset-x-5 top-1/2 h-[2px] -translate-y-1/2 bg-[repeating-linear-gradient(to_right,white_0_13px,transparent_13px_26px)] opacity-90" />
+              </div>
+            </div>
 
-                <h4 className="text-2xl font-black tracking-tight">
-                  {item.title}
-                </h4>
+            <div className="absolute left-7 top-0 h-full w-1 rounded-full bg-gradient-to-b from-[#007f8f] via-[#22c7c9] to-[#ffd814] lg:hidden" />
 
-                <p className="mt-4 text-sm leading-8 text-slate-600 dark:text-white/65">
-                  {item.desc}
-                </p>
-              </motion.div>
-            ))}
+            <div className="grid gap-8 lg:grid-cols-5 lg:gap-7">
+              {process.map((item, index) => {
+                const Icon = item.icon;
+                const colors = [
+                  "from-[#007f8f] to-[#0797a6]",
+                  "from-[#00a9b8] to-[#22c7c9]",
+                  "from-[#12aa8e] to-[#23c997]",
+                  "from-[#62ad38] to-[#7cc242]",
+                  "from-[#ffc400] to-[#ffd814]",
+                ];
+
+                return (
+                  <motion.div
+                    key={item.step}
+                    initial={{ opacity: 0, y: 35 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-80px" }}
+                    transition={{ delay: index * 0.08, duration: 0.5 }}
+                    className="relative flex gap-5 lg:block"
+                  >
+                    <div className="relative z-20 flex h-16 w-16 shrink-0 items-center justify-center rounded-full border-[6px] border-white text-white shadow-xl shadow-cyan-500/20 dark:border-[#06111f] lg:mx-auto lg:h-[102px] lg:w-[102px]">
+                      <div
+                        className={`absolute inset-0 rounded-full bg-gradient-to-br ${colors[index]}`}
+                      />
+                      <div className="absolute inset-[-9px] rounded-full border border-cyan-200 bg-white/50 dark:border-white/10 dark:bg-white/5" />
+                      <div className="absolute inset-3 rounded-full bg-white/10" />
+                      <Icon
+                        className="relative z-10"
+                        size={34}
+                        strokeWidth={2.4}
+                      />
+                      <span
+                        className={`absolute -bottom-8 hidden h-10 w-8 bg-gradient-to-b ${colors[index]} lg:block`}
+                        style={{ clipPath: "polygon(50% 100%, 0 0, 100% 0)" }}
+                      />
+                    </div>
+
+                    <motion.div
+                      whileHover={{ y: -8, scale: 1.015 }}
+                      className="group relative z-10 mt-0 min-h-[235px] overflow-hidden rounded-[2rem] border border-slate-200 bg-white/95 p-6 shadow-[0_22px_60px_rgba(15,23,42,0.09)] backdrop-blur-xl transition-all duration-300 hover:border-[#007f8f]/40 dark:border-white/10 dark:bg-white/[0.06] lg:mt-12"
+                    >
+                      <div
+                        className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${colors[index]}`}
+                      />
+
+                      <div className="relative z-10">
+                        <div className="inline-flex rounded-lg bg-[#ffd814] px-4 py-1.5 text-xs font-black text-black shadow-md shadow-yellow-400/25">
+                          Step {item.step}
+                        </div>
+
+                        <h4 className="mt-5 text-[1.32rem] font-bold leading-[1.2] tracking-[-0.01em] text-[#020617] dark:text-white">
+                          {item.title}
+                        </h4>
+
+                        <p className="mt-4 text-sm leading-6 text-slate-600 dark:text-white/65">
+                          {item.desc}
+                        </p>
+                      </div>
+
+                      <span
+                        className={`absolute bottom-4 right-5 bg-gradient-to-br ${colors[index]} bg-clip-text text-[4.2rem] font-black leading-none text-transparent opacity-20 transition group-hover:opacity-30`}
+                      >
+                        {item.step}
+                      </span>
+                    </motion.div>
+                  </motion.div>
+                );
+              })}
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="mx-auto mt-10 flex max-w-4xl items-center gap-4 rounded-2xl border border-slate-200 bg-white/90 px-6 py-5 shadow-[0_18px_45px_rgba(15,23,42,0.07)] backdrop-blur-xl dark:border-white/10 dark:bg-white/[0.06]"
+            >
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#007f8f] text-white">
+                <ShieldCheck size={22} />
+              </div>
+
+              <p className="text-sm font-medium leading-7 text-slate-600 dark:text-white/70 sm:text-base">
+                We ensure practical learning, real-world projects, and valuable
+                experience{" "}
+                <span className="font-black text-[#007f8f]">
+                  that shapes your future!
+                </span>
+              </p>
+            </motion.div>
           </div>
         </div>
 
         {/* DOMAINS */}
-        <div className="mt-20">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="text-xs font-black uppercase tracking-[0.25em] text-[#007f8f]">
+        {/* DOMAINS - RESPONSIVE PREMIUM FIXED */}
+        <div className="mt-16">
+          <div className="mx-auto max-w-4xl text-center">
+            <p className="text-xs font-black uppercase tracking-[0.35em] text-[#007f8f]">
               Internship Domains
             </p>
+            <div className="mx-auto mt-4 flex items-center justify-center gap-2">
+              <span className="h-1 w-20 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600" />
+              <span className="h-2 w-2 rounded-full bg-cyan-500" />
+            </div>
 
-            <h3 className="mt-4 text-[clamp(2rem,5vw,3.5rem)] font-black leading-tight tracking-tight">
-              Choose Your Learning Path
+            <h3 className="mt-6 font-serif text-[clamp(2rem,4vw,3.8rem)] font-black leading-[1.05] tracking-[-0.04em] text-[#020617] dark:text-white">
+              Choose Your{" "}
+              <span className="bg-gradient-to-r from-cyan-500 via-blue-600 to-violet-600 bg-clip-text text-transparent">
+                Learning Path
+              </span>
             </h3>
+
+            <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-slate-600 dark:text-white/65 sm:text-base">
+              Explore carefully designed internship domains and build
+              future-ready creative skills with modern learning experiences.
+            </p>
           </div>
 
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-            {domains.map((item, index) => {
-              const Icon = item.icon;
+          <div className="relative mx-auto mt-10 max-w-7xl">
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+              {domains.map((item, index) => {
+                const Icon = item.icon;
 
-              return (
-                <motion.article
-                  key={item.title}
-                  initial={{ opacity: 0, y: 28 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.06 }}
-                  whileHover={{ y: -6 }}
-                  className="group relative flex min-h-[340px] flex-col justify-between rounded-[2rem] border border-slate-200 bg-white p-7 shadow-xl shadow-slate-900/5 transition hover:border-[#007f8f]/40 dark:border-white/10 dark:bg-[#111827]"
-                >
-                  <div>
-                    <div className="flex h-16 w-16 items-center justify-center rounded-3xl bg-[#111827] text-white transition group-hover:scale-105">
-                      <Icon size={32} />
+                return (
+                  <motion.article
+                    key={item.title}
+                    initial={{ opacity: 0, y: 24 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.05 }}
+                    whileHover={{ y: -8, scale: 1.015 }}
+                    className="group relative flex min-h-[330px] flex-col overflow-hidden rounded-[1.7rem] border border-slate-200 bg-gradient-to-b from-white to-slate-50 p-5 shadow-[0_18px_45px_rgba(15,23,42,0.07)] transition hover:shadow-[0_25px_70px_rgba(59,130,246,0.18)] dark:border-white/10 dark:from-[#111827] dark:to-[#07111f] sm:p-6"
+                  >
+                    <div
+                      className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${item.gradient}`}
+                    />
+
+                    <div
+                      className={`absolute -right-12 -top-12 h-32 w-32 rounded-full bg-gradient-to-br ${item.gradient} opacity-0 blur-3xl transition duration-500 group-hover:opacity-25`}
+                    />
+
+                    <span className="absolute right-5 top-5 text-2xl font-black text-slate-200 dark:text-white/10">
+                      0{index + 1}
+                    </span>
+
+                    <div
+                      className={`flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br ${item.gradient} text-white shadow-xl transition duration-300 group-hover:scale-110 group-hover:rotate-3 lg:h-20 lg:w-20`}
+                    >
+                      <Icon size={30} />
                     </div>
 
-                    <h4 className="mt-7 text-2xl font-black leading-tight tracking-tight">
+                    <h4 className="mt-6 min-h-[64px] text-xl font-black leading-tight tracking-[-0.03em] text-[#020617] dark:text-white lg:text-[1.4rem]">
                       {item.title}
                     </h4>
 
-                    <p className="mt-5 text-[15px] leading-8 text-slate-600 dark:text-white/65">
+                    <p className="mt-2 min-h-[78px] text-sm leading-6 text-slate-600 dark:text-white/65">
                       {item.desc}
                     </p>
-                  </div>
 
-                  <a
-                    href={applyLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-8 inline-flex items-center justify-center gap-3 rounded-2xl bg-[#ffd814] px-7 py-4 text-base font-black text-black shadow-lg shadow-yellow-400/25 transition hover:-translate-y-1 hover:bg-[#f7ca00]"
-                  >
-                    Apply Now
-                    <ArrowRight size={20} />
-                  </a>
-                </motion.article>
-              );
-            })}
+                    <div className="mt-4 space-y-2">
+                      {item.points.map((point) => (
+                        <div
+                          key={point}
+                          className="flex items-center gap-2 text-sm font-semibold text-slate-700 dark:text-white/80"
+                        >
+                          <span
+                            className={`h-2 w-2 shrink-0 rounded-full bg-gradient-to-r ${item.gradient}`}
+                          />
+                          {point}
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="mt-auto pt-6">
+                      <a
+                        href={applyLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r ${item.gradient} px-5 py-3 text-sm font-black text-white shadow-lg transition duration-300 hover:scale-[1.03]`}
+                      >
+                        Apply Now
+                        <ArrowRight
+                          size={17}
+                          className="transition group-hover:translate-x-1"
+                        />
+                      </a>
+                    </div>
+                  </motion.article>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>

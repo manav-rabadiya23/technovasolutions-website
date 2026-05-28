@@ -1,96 +1,71 @@
 import { motion } from "framer-motion";
 import {
-  ArrowRight,
-  Award,
-  Bot,
-  BriefcaseBusiness,
-  Building2,
-  CheckCircle2,
+  BadgeCheck,
+  Brain,
   Code2,
-  Globe2,
-  GraduationCap,
-  Palette,
+  Eye,
+  Lightbulb,
   Rocket,
-  ShieldCheck,
-  Sparkles,
+  Target,
   TrendingUp,
-  UsersRound,
+  Users,
 } from "lucide-react";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 32 },
-  show: { opacity: 1, y: 0 },
-};
+const STARTUP_INDIA_LOGO = "/startup-india.png";
+const STARTUP_TEMP_ID = "IN-0426-9440WO";
 
-const stagger = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.08,
-    },
-  },
-};
-
-const stats = [
-  { value: "500+", label: "Projects Completed", icon: Building2 },
-  { value: "100+", label: "Happy Clients", icon: UsersRound },
-  { value: "3+", label: "Years of Excellence", icon: ShieldCheck },
-  { value: "MSME", label: "Registered", icon: Award },
-];
-
-const capabilities = [
+const growthCards = [
   {
-    title: "Web Development",
-    desc: "We build fast, responsive and modern websites that help your business grow online.",
-    icon: Code2,
-    color: "from-blue-500 to-cyan-500",
-  },
-  {
-    title: "AI Solutions",
-    desc: "We integrate AI tools and automation to improve efficiency and drive better results.",
-    icon: Bot,
-    color: "from-emerald-500 to-teal-500",
-  },
-  {
-    title: "SEO & Growth",
-    desc: "We help your business rank higher, attract the right audience and achieve real growth.",
-    icon: TrendingUp,
-    color: "from-yellow-400 to-orange-500",
-  },
-  {
-    title: "Branding & Design",
-    desc: "We create unique brand identities and stunning designs that make you stand out.",
-    icon: Palette,
-    color: "from-violet-500 to-purple-500",
-  },
-  {
-    title: "Internship Program",
-    desc: "Learn, grow and build practical skills with our internship opportunities.",
-    icon: GraduationCap,
-    color: "from-cyan-500 to-blue-500",
-  },
-];
-
-const helpItems = [
-  {
-    title: "Businesses",
-    desc: "Helping businesses automate processes and build strong digital presence.",
-    icon: Building2,
-  },
-  {
-    title: "Startups",
-    desc: "Supporting startups with MVP development, branding and growth.",
+    title: "For Startups",
+    desc: "Launch-ready websites, MVP ideas, and scalable digital structure for early-stage growth.",
     icon: Rocket,
   },
   {
-    title: "Freelancers",
-    desc: "Empowering freelancers with personal branding, portfolio and visibility.",
-    icon: UsersRound,
+    title: "For Businesses",
+    desc: "Powerful websites, digital marketing, and tech solutions to grow your business.",
+    icon: Target,
   },
   {
-    title: "Personal Brands",
-    desc: "Building powerful personal brands that create trust and influence.",
-    icon: Globe2,
+    title: "For Freelancers",
+    desc: "Portfolio websites, service pages, and personal branding that look professional.",
+    icon: Users,
+  },
+];
+
+const stats = [
+  { value: "150+", label: "Happy Clients", icon: Users },
+  { value: "250+", label: "Projects Completed", icon: Code2 },
+  { value: "25+", label: "Team Members", icon: Users },
+  { value: "5+", label: "Years of Experience", icon: BadgeCheck },
+];
+
+const trustItems = [
+  "Transparent & Honest",
+  "Quality Focused",
+  "Client Centric",
+  "Certified Team",
+];
+
+const pillars = [
+  {
+    title: "Smart Planning",
+    desc: "We understand your business goal first, then create a practical digital strategy.",
+    icon: Lightbulb,
+  },
+  {
+    title: "Clean Development",
+    desc: "We build fast, responsive, and easy-to-use digital products.",
+    icon: Code2,
+  },
+  {
+    title: "AI Integration",
+    desc: "We use AI tools and workflows to improve productivity.",
+    icon: Brain,
+  },
+  {
+    title: "Growth Strategy",
+    desc: "We help improve online visibility and brand trust.",
+    icon: TrendingUp,
   },
 ];
 
@@ -98,303 +73,250 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="relative overflow-hidden bg-[#f6f7f8] px-4 py-14 text-[#020617] dark:bg-[#020617] dark:text-white sm:px-6 lg:px-8"
+      className="relative overflow-hidden bg-[#f7fafa] px-4 pb-14 pt-12 text-[#071126] dark:bg-[#0f1111] dark:text-white sm:px-6 lg:px-8"
     >
-      {/* BACKGROUND */}
-      <div className="absolute left-[-150px] top-16 h-80 w-80 rounded-full bg-cyan-400/15 blur-3xl" />
-      <div className="absolute right-[-150px] top-72 h-80 w-80 rounded-full bg-blue-500/10 blur-3xl" />
-      <div className="absolute bottom-[-120px] left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-yellow-400/10 blur-3xl" />
+      <div className="mx-auto max-w-[92rem]">
+        {/* HEADING */}
+        <motion.div
+          initial={{ opacity: 0, y: 22 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mx-auto max-w-4xl text-center"
+        >
+          <p className="text-[11px] font-black uppercase tracking-[0.45em] text-[#007f8f] sm:text-xs">
+            About TechNova Solutions
+          </p>
 
-      <div className="absolute left-6 top-28 h-32 w-32 opacity-20 [background-image:radial-gradient(#0ea5e9_1.5px,transparent_1.5px)] [background-size:14px_14px]" />
-      <div className="absolute bottom-20 right-8 h-32 w-32 opacity-20 [background-image:radial-gradient(#0ea5e9_1.5px,transparent_1.5px)] [background-size:14px_14px]" />
+          <h2 className="mt-5 font-['Poppins'] text-[clamp(2.25rem,4.8vw,4.6rem)] font-extrabold leading-[1.02] tracking-[0.01em] text-[#111827] dark:text-white">
+            Digital Intelligence
+            <br />
+            <span className="font-['Poppins'] tracking-[0.015em] text-[#007f8f]">
+              for Business Growth
+            </span>
+          </h2>
 
-      <div className="relative mx-auto max-w-7xl">
-        {/* TOP */}
-        <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-          {/* LEFT */}
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: "-80px" }}
-          >
-            <motion.div
-              variants={fadeUp}
-              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#007f8f] to-cyan-500 px-5 py-2 text-xs font-black uppercase tracking-[0.22em] text-white shadow-lg shadow-cyan-500/25"
-            >
-              <UsersRound size={16} />
-              About Us
-            </motion.div>
+          <p className="mx-auto mt-5 max-w-3xl text-sm leading-7 text-slate-600 dark:text-white/65 sm:text-base">
+            TechNova Solutions helps businesses, startups, freelancers, and
+            freshers grow through professional websites, AI-powered solutions,
+            Google visibility, and practical digital strategy.
+          </p>
+        </motion.div>
+        {/* STARTUP INDIA HERO CARD */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.55 }}
+          className="mt-9 overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-[0_30px_90px_rgba(15,23,42,0.10)] dark:border-white/10 dark:bg-[#131921]"
+        >
+          <div className="grid min-h-[330px] lg:grid-cols-[1fr_0.9fr]">
+            {/* LEFT CONTENT */}
+            <div className="relative flex flex-col justify-center overflow-hidden bg-gradient-to-br from-[#00656d] via-[#007f8f] to-[#00555d] p-7 text-white sm:p-10 lg:p-12">
+              <div className="absolute -left-24 -top-24 h-72 w-72 rounded-full bg-white/10 blur-3xl" />
+              <div className="absolute bottom-[-120px] right-[-100px] h-80 w-80 rounded-full bg-[#ffd814]/20 blur-3xl" />
 
-            <motion.h2
-              variants={fadeUp}
-              className="mt-6 font-serif text-[clamp(2.4rem,5vw,4.4rem)] font-black leading-[1.05] tracking-[-0.05em] text-[#020617] dark:text-white"
-            >
-              About{" "}
-              <span className="bg-gradient-to-r from-[#007f8f] via-cyan-500 to-blue-600 bg-clip-text text-transparent">
-                TechNova
-              </span>{" "}
-              Solutions
-            </motion.h2>
+              <div className="relative z-10">
+                <div className="inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/10 px-4 py-2 backdrop-blur-xl">
+                  <BadgeCheck size={16} className="text-[#ffd814]" />
+                  <span className="text-[10px] font-black uppercase tracking-[0.24em] text-white/80">
+                    Startup India Recognition
+                  </span>
+                </div>
 
-            <motion.p
-              variants={fadeUp}
-              className="mt-2 text-base font-bold tracking-wide text-slate-700 dark:text-white/70"
-            >
-              AI Powered ~ Smart Digital Solutions
-            </motion.p>
+                <h3 className="mt-6 max-w-xl font-['Poppins'] text-[clamp(2.1rem,4vw,4.2rem)] font-extrabold leading-[1.08] tracking-[0.02em]">
+                  Officially Recognized Startup
+                </h3>
 
-            <motion.div
-              variants={fadeUp}
-              className="mt-3 h-1 w-20 rounded-full bg-gradient-to-r from-[#007f8f] to-cyan-500"
-            />
+                <p className="mt-5 max-w-xl text-sm leading-8 text-white/85 sm:text-base">
+                  TechNova Solutions is officially recognized under Startup
+                  India, showcasing our commitment to innovation, technology,
+                  and digital transformation.
+                </p>
 
-            <motion.p
-              variants={fadeUp}
-              className="mt-6 max-w-3xl text-base leading-8 text-slate-600 dark:text-white/65 sm:text-lg"
-            >
-              TechNova Solutions is a forward-thinking digital agency and IT
-              company helping businesses, startups, and individuals grow with
-              modern technology, smart strategies, and creative digital
-              solutions.
-            </motion.p>
-
-            <motion.div
-              variants={fadeUp}
-              whileHover={{ y: -4 }}
-              className="relative mt-7 overflow-hidden rounded-[1.8rem] border border-cyan-100 bg-white p-5 shadow-[0_18px_50px_rgba(15,23,42,0.06)] dark:border-white/10 dark:bg-white/[0.05]"
-            >
-              <div className="absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-cyan-50 to-transparent dark:from-cyan-500/10" />
-
-              <p className="relative text-base font-semibold leading-8 text-slate-700 dark:text-white/70">
-                <span className="text-4xl font-black text-[#007f8f]">“</span>{" "}
-                Our mission is simple — deliver reliable digital solutions,
-                build long-term relationships, and create measurable results.
-              </p>
-            </motion.div>
-          </motion.div>
-
-          {/* UDYAM CARD */}
-          <motion.div
-            initial={{ opacity: 0, y: 40, scale: 0.96 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.6 }}
-            whileHover={{ y: -8 }}
-            className="relative overflow-hidden rounded-[2.4rem] border border-slate-200 bg-white p-8 text-center shadow-[0_30px_90px_rgba(15,23,42,0.10)] dark:border-white/10 dark:bg-white/[0.05]"
-          >
-            <div className="absolute right-0 top-0 h-full w-32 opacity-40 [background-image:radial-gradient(#94a3b8_1.5px,transparent_1.5px)] [background-size:14px_14px]" />
-            <div className="absolute bottom-0 left-0 h-20 w-full bg-gradient-to-r from-[#00b8c7] via-[#007f8f] to-[#ffd814]" />
-            <div className="absolute -left-16 -top-16 h-40 w-40 rounded-full bg-cyan-400/20 blur-3xl" />
-            <div className="absolute -right-16 bottom-10 h-40 w-40 rounded-full bg-yellow-400/20 blur-3xl" />
-
-            <div className="relative z-10">
-              <motion.div
-                animate={{ y: [0, -8, 0] }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-white shadow-xl dark:bg-[#111827]"
-              >
-                <ShieldCheck size={40} className="text-[#007f8f]" />
-              </motion.div>
-
-              <p className="mt-6 text-lg font-medium text-slate-700 dark:text-white/70">
-                Proudly Registered
-              </p>
-
-              <h3 className="mt-2 text-[clamp(2.8rem,5vw,4.5rem)] font-black leading-none text-[#f2b400]">
-                UDYAM
-              </h3>
-
-              <div className="mx-auto mt-5 inline-flex rounded-xl bg-[#007f8f] px-6 py-3 text-base font-black text-white shadow-lg">
-                UDYAM-GJ-01-0008286
-              </div>
-
-              <div className="my-7 h-px bg-slate-200 dark:bg-white/10" />
-
-              <div className="grid grid-cols-3 gap-3 text-sm font-bold text-slate-700 dark:text-white/70">
-                {["Trusted", "Verified", "Registered"].map((item) => (
-                  <div
-                    key={item}
-                    className="flex flex-col items-center justify-center gap-2 sm:flex-row"
-                  >
-                    <CheckCircle2 size={18} className="text-[#007f8f]" />
-                    {item}
+                <div className="mt-7 grid gap-4 sm:grid-cols-2">
+                  <div className="rounded-2xl border border-white/15 bg-white/10 p-4 backdrop-blur-xl">
+                    <p className="text-xs font-bold uppercase tracking-[0.18em] text-white/60">
+                      Status
+                    </p>
+                    <p className="mt-2 text-base font-black">
+                      Recognized by Startup India
+                    </p>
                   </div>
-                ))}
+
+                  <div className="rounded-2xl border border-white/15 bg-white/10 p-4 backdrop-blur-xl">
+                    <p className="text-xs font-bold uppercase tracking-[0.18em] text-white/60">
+                      Registration ID
+                    </p>
+                    <p className="mt-2 text-2xl font-poppins tracking-wide text-[#ffd814]">
+                      {STARTUP_TEMP_ID}
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
-          </motion.div>
-        </div>
 
-        {/* STATS */}
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-80px" }}
-          className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
-        >
-          {stats.map((item) => {
-            const Icon = item.icon;
+            {/* RIGHT LOGO */}
+            <div className="relative flex min-h-[260px] items-center justify-center overflow-hidden bg-[#f8fafc] p-8 dark:bg-[#0f1722]">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,127,143,0.12),transparent_58%)] dark:bg-[radial-gradient(circle_at_center,rgba(255,216,20,0.10),transparent_58%)]" />
 
-            return (
-              <motion.div
-                key={item.label}
-                variants={fadeUp}
-                whileHover={{ y: -6 }}
-                className="group flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-[0_14px_40px_rgba(15,23,42,0.05)] transition dark:border-white/10 dark:bg-white/[0.05]"
-              >
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-cyan-50 text-[#007f8f] shadow-sm transition group-hover:scale-110 dark:bg-white/10">
-                  <Icon size={24} />
-                </div>
-
-                <div>
-                  <p className="text-2xl font-black text-[#007f8f]">
-                    {item.value}
-                  </p>
-                  <p className="text-sm font-semibold text-slate-700 dark:text-white/65">
-                    {item.label}
-                  </p>
-                </div>
-              </motion.div>
-            );
-          })}
-        </motion.div>
-
-        {/* CAPABILITIES */}
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-80px" }}
-          className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-5"
-        >
-          {capabilities.map((item) => {
-            const Icon = item.icon;
-
-            return (
-              <motion.div
-                key={item.title}
-                variants={fadeUp}
-                whileHover={{ y: -8, scale: 1.015 }}
-                className="group relative overflow-hidden rounded-[1.8rem] border border-slate-200 bg-white p-5 shadow-[0_20px_60px_rgba(15,23,42,0.06)] transition dark:border-white/10 dark:bg-white/[0.05]"
-              >
-                <div
-                  className={`absolute -right-12 -top-12 h-32 w-32 rounded-full bg-gradient-to-br ${item.color} opacity-0 blur-3xl transition duration-500 group-hover:opacity-25`}
+              <div className="relative z-10 flex w-full max-w-xl items-center justify-center rounded-[2rem] border border-slate-200 bg-white px-8 py-10 shadow-[0_25px_70px_rgba(15,23,42,0.10)] dark:border-white/10 dark:bg-white">
+                <motion.img
+                  src={STARTUP_INDIA_LOGO}
+                  alt="Startup India"
+                  initial={{ scale: 0.95, opacity: 0 }}
+                  whileInView={{ scale: 1, opacity: 1 }}
+                  whileHover={{ scale: 1.04 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.45 }}
+                  className="w-full max-w-[420px] object-contain"
                 />
-
-                <div className="relative z-10">
-                  <div
-                    className={`flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${item.color} text-white shadow-xl transition group-hover:scale-110 group-hover:rotate-3`}
-                  >
-                    <Icon size={26} />
-                  </div>
-
-                  <h4 className="mt-5 text-xl font-black leading-tight text-[#020617] dark:text-white">
-                    {item.title}
-                  </h4>
-
-                  <div className="mt-3 h-1 w-10 rounded-full bg-[#007f8f]" />
-
-                  <p className="mt-4 text-sm leading-7 text-slate-600 dark:text-white/65">
-                    {item.desc}
-                  </p>
-                </div>
-              </motion.div>
-            );
-          })}
-        </motion.div>
-
-        {/* HELP + CTA */}
-        <div className="mt-8 grid gap-5 lg:grid-cols-[1fr_300px]">
-          <motion.div
-            initial={{ opacity: 0, y: 32 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-[0_20px_60px_rgba(15,23,42,0.06)] dark:border-white/10 dark:bg-white/[0.05]"
-          >
-            <div className="grid gap-5 lg:grid-cols-[230px_1fr_1fr_1fr_1fr]">
-              <div>
-                <h3 className="text-2xl font-black text-[#020617] dark:text-white">
-                  Who We Help
-                </h3>
-                <div className="mt-3 h-1 w-12 rounded-full bg-[#007f8f]" />
-                <p className="mt-5 text-sm leading-7 text-slate-600 dark:text-white/65">
-                  We work with a wide range of clients and help them grow with
-                  digital solutions.
-                </p>
               </div>
+            </div>
+          </div>
+        </motion.div>
+        {/* MAIN CARDS */}
+        <div className="mt-7 grid items-stretch gap-6 lg:grid-cols-2">
+          {/* MISSION */}
+          <motion.div
+            initial={{ opacity: 0, y: 26 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex min-h-[360px] flex-col rounded-[1.6rem] border border-slate-200 bg-white p-6 shadow-[0_18px_60px_rgba(15,23,42,0.06)] dark:border-white/10 dark:bg-[#131921]"
+          >
+            <h3 className="text-xl font-black text-[#007f8f]">
+              Our Mission & Vision
+            </h3>
 
-              {helpItems.map((item) => {
+            <div className="mt-3 h-[3px] w-12 rounded-full bg-[#ffd814]" />
+
+            <div className="mt-5 grid flex-1 gap-5 sm:grid-cols-2">
+              {[
+                {
+                  title: "Our Mission",
+                  text: "To deliver innovative and reliable IT solutions that empower businesses to achieve their goals.",
+                  icon: Target,
+                },
+                {
+                  title: "Our Vision",
+                  text: "To be a global leader in technology and digital transformation with integrity and innovation.",
+                  icon: Eye,
+                },
+              ].map((item) => {
                 const Icon = item.icon;
 
                 return (
-                  <motion.div
+                  <div
                     key={item.title}
-                    whileHover={{ y: -5 }}
-                    className="rounded-2xl border border-slate-200 bg-slate-50 p-4 transition dark:border-white/10 dark:bg-white/[0.04]"
+                    className="flex flex-col justify-start rounded-2xl bg-[#f8fbfb] p-5 pt-7 dark:bg-white/5"
                   >
-                    <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-[#007f8f] shadow-sm dark:bg-white/10">
-                      <Icon size={22} />
-                    </div>
+                    <Icon className="h-14 w-14 text-[#007f8f]" />
 
-                    <h4 className="mt-4 text-lg font-black text-[#020617] dark:text-white">
-                      {item.title}
-                    </h4>
+                    <h4 className="mt-5 font-black">{item.title}</h4>
 
-                    <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-white/65">
-                      {item.desc}
+                    <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-white/60">
+                      {item.text}
                     </p>
-                  </motion.div>
+                  </div>
                 );
               })}
             </div>
           </motion.div>
 
+          {/* WORK FOR */}
           <motion.div
-            initial={{ opacity: 0, x: 32 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            whileHover={{ y: -6 }}
-            className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#06111f] via-[#09203d] to-[#06111f] p-6 text-white shadow-[0_25px_70px_rgba(15,23,42,0.22)]"
+            initial={{ opacity: 0, y: 26 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex min-h-[360px] flex-col rounded-[1.6rem] border border-slate-200 bg-white p-6 shadow-[0_18px_60px_rgba(15,23,42,0.06)] dark:border-white/10 dark:bg-[#131921]"
           >
-            <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full bg-cyan-400/20 blur-3xl" />
-            <div className="absolute -bottom-16 -left-16 h-40 w-40 rounded-full bg-blue-500/20 blur-3xl" />
+            <h3 className="text-xl font-black text-[#007f8f]">We Work For</h3>
 
-            <div className="relative z-10">
-              <motion.div
-                animate={{ rotate: [0, 8, -8, 0] }}
-                transition={{
-                  duration: 5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 text-white shadow-xl"
-              >
-                <BriefcaseBusiness size={26} />
-              </motion.div>
+            <div className="mt-3 h-[3px] w-12 rounded-full bg-[#ffd814]" />
 
-              <h3 className="mt-5 text-2xl font-black leading-tight">
-                Let’s Build Something Great
-              </h3>
+            <div className="mt-5 grid flex-1 gap-4 sm:grid-cols-3">
+              {growthCards.map((item) => {
+                const Icon = item.icon;
 
-              <p className="mt-4 text-sm leading-7 text-white/70">
-                Have a project in mind? Let’s turn your ideas into reality.
-              </p>
+                return (
+                  <div
+                    key={item.title}
+                    className="flex flex-col items-center justify-start rounded-2xl bg-[#f8fbfb] p-4 pt-7 text-center dark:bg-white/5"
+                  >
+                    <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#007f8f] text-white">
+                      <Icon size={22} />
+                    </div>
 
-              <a
-                href="#contact"
-                className="mt-6 inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-cyan-500 to-[#007f8f] px-6 py-4 text-sm font-black text-white shadow-lg transition hover:scale-[1.03]"
-              >
-                Get In Touch
-                <ArrowRight size={18} />
-              </a>
+                    <h4 className="mt-5 text-sm font-black leading-tight sm:text-[15px]">
+                      {item.title}
+                    </h4>
+
+                    <p className="mt-3 text-[12px] leading-6 text-slate-600 dark:text-white/60">
+                      {item.desc}
+                    </p>
+                  </div>
+                );
+              })}
             </div>
           </motion.div>
+        </div>
+        {/* STATS + VALUES */}
+        <div className="mt-6">
+          {/* STATS */}
+          <motion.div
+            initial={{ opacity: 0, y: 26 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="grid w-full overflow-hidden rounded-[2rem] bg-gradient-to-r from-[#00656d] via-[#007f8f] to-[#00545d] text-white shadow-[0_22px_70px_rgba(0,127,143,0.25)] sm:grid-cols-2 lg:grid-cols-4"
+          >
+            {stats.map((item) => {
+              const Icon = item.icon;
+
+              return (
+                <div
+                  key={item.label}
+                  className="flex min-h-[150px] items-center justify-center gap-5 border-b border-white/20 px-6 py-7 sm:border-r lg:border-b-0 lg:last:border-r-0"
+                >
+                  <Icon className="h-10 w-10" />
+
+                  <div>
+                    <p className="text-2xl font-black">{item.value}</p>
+
+                    <p className="text-xs text-white/85 sm:text-sm">
+                      {item.label}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </motion.div>
+        </div>
+        {/* PILLARS */}
+        <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {pillars.map((item, index) => {
+            const Icon = item.icon;
+
+            return (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 26 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.05 }}
+                whileHover={{ y: -6 }}
+                className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-xl dark:border-white/10 dark:bg-[#131921]"
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#007f8f] text-white">
+                  <Icon size={22} />
+                </div>
+
+                <h4 className="mt-5 text-lg font-black">{item.title}</h4>
+
+                <p className="mt-2 text-sm leading-7 text-slate-600 dark:text-white/60">
+                  {item.desc}
+                </p>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

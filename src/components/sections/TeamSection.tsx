@@ -21,10 +21,9 @@ type Member = {
 
 const leadershipTeam: Member[] = [
   {
-    name: "Amit Patel",
+    name: "Suryansh Soni",
     role: "Founder",
-    image:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=900&auto=format&fit=crop",
+    image: "founder.jpeg",
     desc: "Leading TechNova Solutions with innovation, strategic vision, and future-ready digital transformation.",
     icon: Crown,
   },
@@ -112,11 +111,11 @@ function MemberCard({ member, index }: { member: Member; index: number }) {
       viewport={{ once: true }}
       className="group w-full max-w-full overflow-hidden rounded-[24px] border border-slate-200 bg-white shadow-lg shadow-slate-200/70 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl dark:border-white/10 dark:bg-[#111827] dark:shadow-black/30 sm:rounded-[26px]"
     >
-      <div className="relative h-[240px] overflow-hidden sm:h-[280px]">
+      <div className="relative h-[420px] overflow-hidden rounded-[32px] bg-[#e9edf2]">
         <img
           src={member.image}
           alt={member.name}
-          className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+          className="h-full w-full object-cover object-top transition duration-700 group-hover:scale-105"
         />
 
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
@@ -138,17 +137,6 @@ function MemberCard({ member, index }: { member: Member; index: number }) {
         <p className="mt-4 text-sm leading-7 text-slate-600 dark:text-zinc-300">
           {member.desc}
         </p>
-
-        <div className="mt-6 flex items-center gap-3">
-          {[Mail, Send].map((SocialIcon, i) => (
-            <button
-              key={i}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-600 transition-all duration-300 hover:border-[#007c89] hover:bg-[#007c89] hover:text-white dark:border-white/10 dark:bg-white/5 dark:text-zinc-300"
-            >
-              <SocialIcon size={16} />
-            </button>
-          ))}
-        </div>
       </div>
     </motion.article>
   );

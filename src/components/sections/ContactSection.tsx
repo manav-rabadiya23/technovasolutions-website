@@ -28,8 +28,8 @@ const contactCards = [
   {
     icon: Phone,
     title: "Call / WhatsApp",
-    text: "+91 98765 43210",
-    link: "tel:+919876543210",
+    text: "+91 9601451370",
+    link: "tel:+919601451370",
   },
   {
     icon: Clock,

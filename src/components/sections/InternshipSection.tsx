@@ -149,9 +149,9 @@ export default function InternshipSection() {
           <div className="absolute right-[-120px] top-0 h-72 w-72 rounded-full bg-yellow-400/20 blur-3xl" />
 
           <div className="grid lg:grid-cols-[1fr_390px] xl:grid-cols-[1fr_420px]">
-            <div className="relative overflow-hidden p-6 sm:p-8 lg:p-10 xl:p-12">
+            <div className="relative overflow-hidden p-5 sm:p-7 lg:p-8 xl:p-9">
+              {" "}
               <div className="absolute left-0 top-0 h-full w-28 bg-gradient-to-r from-cyan-50 to-transparent dark:from-cyan-500/5" />
-
               <div className="relative flex items-center gap-4">
                 <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-[#007f8f] to-cyan-700 text-white shadow-xl shadow-cyan-500/30">
                   <ShieldCheck size={30} />
@@ -164,30 +164,34 @@ export default function InternshipSection() {
                   <div className="mt-2 h-[3px] w-20 rounded-full bg-gradient-to-r from-[#007f8f] to-transparent" />
                 </div>
               </div>
-
               <div className="relative mt-8 max-w-4xl text-center lg:text-left">
-                <h2 className="font-serif text-[clamp(2rem,4vw,4.5rem)] font-bold leading-[1.08] tracking-[-0.03em] text-[#020617] dark:text-white">
-                  Officially Recognized <span className="inline-block">&</span>
-                </h2>
+                <div className="flex flex-col items-center gap-5 text-center lg:flex-row lg:text-left">
+                  <div className="shrink-0">
+                    <img
+                      src="/startup-india.png"
+                      alt="Startup India"
+                      className="h-14 w-auto object-contain sm:h-16"
+                    />
+                  </div>
 
-                <h2 className="mt-1 font-serif text-[clamp(2rem,4vw,4.5rem)] font-bold leading-[1.08] tracking-[-0.03em]">
-                  <span className="bg-gradient-to-r from-[#007f8f] via-cyan-500 to-sky-500 bg-clip-text text-transparent">
-                    Udyam Registered
-                  </span>
-                </h2>
+                  <div className="hidden h-12 w-px bg-slate-200 lg:block" />
 
-                <h2 className="mt-1 font-serif text-[clamp(2rem,4vw,4.5rem)] font-bold leading-[1.08] tracking-[-0.03em] text-[#020617] dark:text-white">
-                  by Government of India
-                </h2>
+                  <p className="max-w-2xl text-sm leading-7 text-slate-600 dark:text-white/70 sm:text-base">
+                    Proud to be{" "}
+                    <span className="font-black text-[#007C89]">
+                      #startupindia
+                    </span>{" "}
+                    registered, supporting innovation, entrepreneurship, and
+                    building a stronger digital India.
+                  </p>
+                </div>
               </div>
-
               <p className="relative mt-6 max-w-3xl text-sm leading-8 text-slate-600 dark:text-white/65 sm:text-base">
-                TechNova Solutions is officially registered under the Udyam MSME
-                initiative, reflecting our commitment to transparency,
-                professionalism, trusted internship programs, and modern digital
-                solutions.
+                TechNova Solutions is officially registered under the
+                #startupindia initiative, reflecting our commitment to
+                transparency, professionalism, trusted internship programs, and
+                modern digital solutions.
               </p>
-
               <div className="relative mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
                 {trustItems.map((item) => (
                   <div
@@ -222,9 +226,13 @@ export default function InternshipSection() {
                   Verified Business
                 </h3>
 
-                <p className="mt-3 whitespace-nowrap text-[10px] font-black uppercase tracking-[0.22em] text-slate-800/80 sm:text-xs">
-                  Government Recognized
-                </p>
+                <div className="mt-3 flex flex-wrap items-center justify-center gap-4 lg:justify-start">
+                  <img
+                    src="/startup-india.png"
+                    alt="Startup India"
+                    className="h-14 w-auto object-contain sm:h-16"
+                  />
+                </div>
 
                 <div className="mt-5 flex items-center justify-center gap-3">
                   <div className="h-[2px] w-12 bg-slate-900/30" />
@@ -368,9 +376,111 @@ export default function InternshipSection() {
             </motion.div>
           </div>
         </div>
+        {/* CERTIFICATE PREVIEW */}
+        <div className="relative mt-16 overflow-hidden rounded-[3rem] border border-cyan-100 bg-white p-5 shadow-[0_30px_100px_rgba(15,23,42,0.08)] dark:border-white/10 dark:bg-[#0f1722] sm:p-8 lg:p-10">
+          <div className="absolute left-[-120px] top-0 h-72 w-72 rounded-full bg-cyan-400/10 blur-3xl" />
+          <div className="absolute right-[-120px] bottom-0 h-72 w-72 rounded-full bg-yellow-400/20 blur-3xl" />
+
+          <div className="relative mx-auto max-w-4xl text-center">
+            <p className="text-xs font-black uppercase tracking-[0.35em] text-[#007f8f]">
+              Certificate Preview
+            </p>
+
+            <h3 className="mt-5 font-serif text-[clamp(2rem,4vw,3.8rem)] font-black leading-[1.05] tracking-[-0.04em] text-[#020617] dark:text-white">
+              Your Achievement,{" "}
+              <span className=" text-[#007C89]">Our Recognition</span>
+            </h3>
+
+            <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-slate-600 dark:text-white/65 sm:text-base">
+              A professional certificate that validates your skills, learning,
+              and dedication through our internship program.
+            </p>
+          </div>
+
+          <div className="relative mt-12 grid items-center gap-8 lg:grid-cols-[1.2fr_0.8fr]">
+            {/* LEFT CERTIFICATE IMAGE */}
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              whileHover={{ scale: 1.02 }}
+              className="relative"
+            >
+              <div className="rounded-[2rem] bg-gradient-to-r from-[#007f8f] via-cyan-500 to-blue-600 p-[3px] shadow-[0_25px_70px_rgba(8,145,178,0.25)]">
+                <div className="rounded-[1.8rem] bg-white p-3 dark:bg-[#07111f]">
+                  <img
+                    src="/certificate-demo.png"
+                    alt="Certificate Preview"
+                    className="w-full rounded-[1.4rem] object-cover shadow-2xl"
+                  />
+                </div>
+              </div>
+            </motion.div>
+
+            {/* RIGHT CONTENT */}
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="rounded-[2rem] border border-slate-200 bg-[#f8fbfc] p-6 shadow-xl dark:border-white/10 dark:bg-white/[0.04] sm:p-8"
+            >
+              <h4 className="text-2xl font-black leading-tight text-[#020617] dark:text-white">
+                Earn a verified internship certificate that highlights your
+                practical skills and real-world experience.{" "}
+              </h4>
+
+              <div className="mt-8 space-y-6">
+                <div className="flex items-start gap-4">
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-cyan-100 text-[#007f8f] dark:bg-cyan-500/10">
+                    <ShieldCheck size={28} />
+                  </div>
+
+                  <p className="text-sm leading-7 text-slate-600 dark:text-white/70 sm:text-base">
+                    Professional certificate designed to strengthen your resume
+                    and career profile.
+                  </p>
+                </div>
+
+                <div className="h-px bg-slate-200 dark:bg-white/10" />
+
+                <div className="flex items-start gap-4">
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-cyan-100 text-[#007f8f] dark:bg-cyan-500/10">
+                    <Award size={28} />
+                  </div>
+
+                  <p className="text-sm leading-7 text-slate-600 dark:text-white/70 sm:text-base">
+                    Demonstrates your hands-on experience in modern digital and
+                    AI-powered technologies.{" "}
+                  </p>
+                </div>
+
+                <div className="h-px bg-slate-200 dark:bg-white/10" />
+
+                <div className="flex items-start gap-4">
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-cyan-100 text-[#007f8f] dark:bg-cyan-500/10">
+                    <ClipboardCheck size={28} />
+                  </div>
+
+                  <p className="text-sm leading-7 text-slate-600 dark:text-white/70 sm:text-base">
+                    Perfect for showcasing your internship experience on
+                    LinkedIn, resumes, and future opportunities.{" "}
+                  </p>
+                </div>
+                <div className="mt-8 rounded-2xl border border-amber-200 bg-amber-50 p-4 dark:border-amber-500/20 dark:bg-amber-500/10">
+                  <p className="text-xs font-bold leading-6 text-amber-800 dark:text-amber-200 sm:text-sm">
+                    Note: This certificate preview is a demo template. Final
+                    certificate design, content, and format may vary according
+                    to internship domain and completion requirements.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
 
         {/* DOMAINS */}
-        {/* DOMAINS - RESPONSIVE PREMIUM FIXED */}
         <div className="mt-16">
           <div className="mx-auto max-w-4xl text-center">
             <p className="text-xs font-black uppercase tracking-[0.35em] text-[#007f8f]">

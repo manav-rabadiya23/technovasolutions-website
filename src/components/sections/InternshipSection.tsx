@@ -102,8 +102,8 @@ export default function InternshipSection() {
       id="internship"
       className="relative overflow-hidden bg-[#f6f7f8] px-4 py-8 text-[#020617] dark:bg-[#020617] dark:text-white sm:px-6 sm:py-12 lg:px-8"
     >
-      <div className="absolute left-[-140px] top-24 h-72 w-72 rounded-full bg-[#007f8f]/10 blur-3xl" />
-      <div className="absolute right-[-140px] top-96 h-72 w-72 rounded-full bg-[#ffd814]/20 blur-3xl" />
+      <div className="absolute -left-35 top-24 h-72 w-72 rounded-full bg-[#007f8f]/10 blur-3xl" />
+      <div className="absolute -right-3596 h-72 w-72 rounded-full bg-[#ffd814]/20 blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl">
         {/* HERO */}
@@ -145,8 +145,8 @@ export default function InternshipSection() {
           viewport={{ once: true }}
           className="relative mt-12 overflow-hidden rounded-[2rem] border border-cyan-100 bg-white shadow-[0_25px_70px_rgba(15,23,42,0.08)] dark:border-white/10 dark:bg-[#0f1722]"
         >
-          <div className="absolute left-[-120px] top-[20%] h-72 w-72 rounded-full bg-cyan-400/10 blur-3xl" />
-          <div className="absolute right-[-120px] top-0 h-72 w-72 rounded-full bg-yellow-400/20 blur-3xl" />
+          <div className="absolute -left-30 top-[20%] h-72 w-72 rounded-full bg-cyan-400/10 blur-3xl" />
+          <div className="absolute -right-30 top-0 h-72 w-72 rounded-full bg-yellow-400/20 blur-3xl" />
 
           <div className="grid lg:grid-cols-[1fr_390px] xl:grid-cols-[1fr_420px]">
             <div className="relative overflow-hidden p-5 sm:p-7 lg:p-8 xl:p-9">
@@ -564,7 +564,7 @@ export default function InternshipSection() {
                         href={applyLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r ${item.gradient} px-5 py-3 text-sm font-black text-white shadow-lg transition duration-300 hover:scale-[1.03]`}
+                        className={`inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-linear-to-r ${item.gradient} px-5 py-3 text-sm font-black text-white shadow-lg transition duration-300 hover:scale-[1.03]`}
                       >
                         Apply Now
                         <ArrowRight

@@ -134,15 +134,15 @@ function ProjectCard({
       whileHover={{ y: -6 }}
       className="group flex h-full flex-col overflow-hidden rounded-[26px] border border-slate-200 bg-white shadow-lg backdrop-blur-xl transition-all duration-500 hover:border-[#007185]/40 hover:shadow-2xl dark:border-white/10 dark:bg-[#131921]"
     >
-      <div className="relative h-[210px] overflow-hidden rounded-t-[26px] bg-[#e9eef2] dark:bg-[#0f1720] sm:h-[240px] lg:h-[220px] xl:h-[240px]">
+      <div className="relative h-52.5 overflow-hidden rounded-t-[26px] bg-[#e9eef2] dark:bg-[#0f1720] sm:h-60 lg:h-55 xl:h-60">
         <img
           src={project.image}
           alt={project.title}
           className="h-full w-full object-cover object-top transition duration-700 group-hover:scale-[1.03]"
         />
 
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/45 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/10 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-28 bg-linear-to-t from-black/45 to-transparent" />
       </div>
 
       <div className="flex flex-1 flex-col p-5">
@@ -160,7 +160,7 @@ function ProjectCard({
         </div>
       </div>
 
-      <div className="h-[4px] w-0 bg-[#007185] transition-all duration-500 group-hover:w-full dark:bg-[#ffd814]" />
+      <div className="h-1 w-0 bg-[#007185] transition-all duration-500 group-hover:w-full dark:bg-[#ffd814]" />
     </motion.a>
   );
 }

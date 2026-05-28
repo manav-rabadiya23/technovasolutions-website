@@ -188,7 +188,7 @@ export default function ContactSection() {
                       {item.title}
                     </h4>
 
-                    <p className="mt-2 break-words text-[12px] leading-6 text-slate-600 dark:text-white/60">
+                    <p className="mt-2 wrap-break-words text-[12px] leading-6 text-slate-600 dark:text-white/60">
                       {" "}
                       {item.text}
                     </p>

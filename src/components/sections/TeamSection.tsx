@@ -3,7 +3,6 @@ import {
   ArrowRight,
   Code2,
   Crown,
-  Mail,
   MessageCircle,
   Send,
   Smartphone,
@@ -17,6 +16,8 @@ type Member = {
   image: string;
   desc: string;
   icon: React.ElementType;
+  email?: string;
+  phone?: string;
 };
 
 const leadershipTeam: Member[] = [
@@ -26,6 +27,8 @@ const leadershipTeam: Member[] = [
     image: "founder.jpeg",
     desc: "Leading TechNova Solutions with innovation, strategic vision, and future-ready digital transformation.",
     icon: Crown,
+    email: "founder@technovasolutions.in",
+    phone: "919999999999",
   },
   {
     name: "Neha Sharma",
@@ -34,6 +37,8 @@ const leadershipTeam: Member[] = [
       "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=900&auto=format&fit=crop",
     desc: "Driving operations, execution, and business growth through smart planning and leadership.",
     icon: UserRoundCheck,
+    email: "cofounder@technovasolutions.in",
+    phone: "919999999999",
   },
 ];
 
@@ -109,16 +114,16 @@ function MemberCard({ member, index }: { member: Member; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: index * 0.08 }}
       viewport={{ once: true }}
-      className="group w-full max-w-full overflow-hidden rounded-[24px] border border-slate-200 bg-white shadow-lg shadow-slate-200/70 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl dark:border-white/10 dark:bg-[#111827] dark:shadow-black/30 sm:rounded-[26px]"
+      className="group w-full max-w-full overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-lg shadow-slate-200/70 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl dark:border-white/10 dark:bg-[#111827] dark:shadow-black/30 sm:rounded-[26px]"
     >
-      <div className="relative h-[420px] overflow-hidden rounded-[32px] bg-[#e9edf2]">
+      <div className="relative h-105 overflow-hidden rounded-4xl bg-[#e9edf2]">
         <img
           src={member.image}
           alt={member.name}
           className="h-full w-full object-cover object-top transition duration-700 group-hover:scale-105"
         />
 
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/10 to-transparent" />
 
         <div className="absolute bottom-5 left-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-white/15 text-white backdrop-blur-xl">
           <Icon size={22} />
@@ -137,6 +142,26 @@ function MemberCard({ member, index }: { member: Member; index: number }) {
         <p className="mt-4 text-sm leading-7 text-slate-600 dark:text-zinc-300">
           {member.desc}
         </p>
+
+        {(member.role === "Founder" || member.role === "Co-Founder") && (
+          <div className="mt-5 flex items-center gap-3">
+            <a
+              href={`mailto:${member.email}`}
+              className="rounded-full bg-[#007c89] px-4 py-2 text-sm font-bold text-white transition hover:scale-105"
+            >
+              Mail
+            </a>
+
+            <a
+              href={`https://wa.me/${member.phone}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full bg-[#25D366] px-4 py-2 text-sm font-bold text-white transition hover:scale-105"
+            >
+              Message
+            </a>
+          </div>
+        )}
       </div>
     </motion.article>
   );
@@ -147,7 +172,7 @@ export default function TeamSection() {
     <main className="min-h-screen overflow-hidden bg-[#f5f7fb] dark:bg-[#050816]">
       <section className="relative overflow-hidden px-4 pb-16 pt-10 sm:px-6 sm:pb-24 lg:px-8 lg:pt-16">
         {/* Background Glow */}
-        <div className="absolute left-1/2 top-0 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-cyan-400/10 blur-3xl" />
+        <div className="absolute left-1/2 top-0 h-125 w-125 -translate-x-1/2 rounded-full bg-cyan-400/10 blur-3xl" />
 
         <div className="relative mx-auto w-full max-w-7xl">
           {/* HERO */}
@@ -186,7 +211,7 @@ export default function TeamSection() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.65 }}
               viewport={{ once: true }}
-              className="relative w-full max-w-full overflow-hidden rounded-[24px] bg-[#111827] p-6 text-white shadow-2xl shadow-slate-300/60 dark:shadow-black/30 sm:rounded-[30px] sm:p-8"
+              className="relative w-full max-w-full overflow-hidden rounded-3xl bg-[#111827] p-6 text-white shadow-2xl shadow-slate-300/60 dark:shadow-black/30 sm:rounded-[30px] sm:p-8"
             >
               <div className="absolute right-0 top-0 h-48 w-48 rounded-full bg-cyan-400/20 blur-3xl" />
 
@@ -218,7 +243,7 @@ export default function TeamSection() {
                   ].map((item) => (
                     <div
                       key={item}
-                      className="flex min-w-0 items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.06] px-4 py-4 text-sm font-semibold backdrop-blur-xl"
+                      className="flex min-w-0 items-center gap-3 rounded-2xl border border-white/10 bg-white/6 px-4 py-4 text-sm font-semibold backdrop-blur-xl"
                     >
                       <span className="h-2.5 w-2.5 rounded-full bg-[#ffd213]" />
                       {item}
@@ -282,7 +307,7 @@ export default function TeamSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65 }}
             viewport={{ once: true }}
-            className="mt-16 flex w-full max-w-full flex-col items-center justify-between gap-6 overflow-hidden rounded-[24px] border border-slate-200 bg-white p-6 shadow-2xl shadow-slate-200/70 dark:border-white/10 dark:bg-[#111827] dark:shadow-black/30 sm:mt-24 sm:flex-row sm:rounded-[30px] sm:p-10"
+            className="mt-16 flex w-full max-w-full flex-col items-center justify-between gap-6 overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 shadow-2xl shadow-slate-200/70 dark:border-white/10 dark:bg-[#111827] dark:shadow-black/30 sm:mt-24 sm:flex-row sm:rounded-[30px] sm:p-10"
           >
             <div className="flex min-w-0 items-center gap-5 text-center sm:text-left">
               <div className="hidden h-16 w-16 items-center justify-center rounded-2xl bg-[#007c89] text-white shadow-lg shadow-cyan-400/30 sm:flex">

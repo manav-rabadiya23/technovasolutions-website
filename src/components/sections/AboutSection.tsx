@@ -39,13 +39,6 @@ const stats = [
   { value: "5+", label: "Years of Experience", icon: BadgeCheck },
 ];
 
-const trustItems = [
-  "Transparent & Honest",
-  "Quality Focused",
-  "Client Centric",
-  "Certified Team",
-];
-
 const pillars = [
   {
     title: "Smart Planning",
@@ -75,7 +68,7 @@ export default function AboutSection() {
       id="about"
       className="relative overflow-hidden bg-[#f7fafa] px-4 pb-14 pt-12 text-[#071126] dark:bg-[#0f1111] dark:text-white sm:px-6 lg:px-8"
     >
-      <div className="mx-auto max-w-[92rem]">
+      <div className="mx-auto max-w-368">
         {/* HEADING */}
         <motion.div
           initial={{ opacity: 0, y: 22 }}
@@ -107,13 +100,13 @@ export default function AboutSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.55 }}
-          className="mt-9 overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-[0_30px_90px_rgba(15,23,42,0.10)] dark:border-white/10 dark:bg-[#131921]"
+          className="mt-9 overflow-hidden rounded-4xl border border-slate-200 bg-white shadow-[0_30px_90px_rgba(15,23,42,0.10)] dark:border-white/10 dark:bg-[#131921]"
         >
-          <div className="grid min-h-[330px] lg:grid-cols-[1fr_0.9fr]">
+          <div className="grid min-h-82.5 lg:grid-cols-[1fr_0.9fr]">
             {/* LEFT CONTENT */}
-            <div className="relative flex flex-col justify-center overflow-hidden bg-gradient-to-br from-[#00656d] via-[#007f8f] to-[#00555d] p-7 text-white sm:p-10 lg:p-12">
+            <div className="relative flex flex-col justify-center overflow-hidden bg-linear-to-br from-[#00656d] via-[#007f8f] to-[#00555d] p-7 text-white sm:p-10 lg:p-12">
               <div className="absolute -left-24 -top-24 h-72 w-72 rounded-full bg-white/10 blur-3xl" />
-              <div className="absolute bottom-[-120px] right-[-100px] h-80 w-80 rounded-full bg-[#ffd814]/20 blur-3xl" />
+              <div className="absolute -bottom-30 -right-25 h-80 w-80 rounded-full bg-[#ffd814]/20 blur-3xl" />
 
               <div className="relative z-10">
                 <div className="inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/10 px-4 py-2 backdrop-blur-xl">
@@ -156,10 +149,10 @@ export default function AboutSection() {
             </div>
 
             {/* RIGHT LOGO */}
-            <div className="relative flex min-h-[260px] items-center justify-center overflow-hidden bg-[#f8fafc] p-8 dark:bg-[#0f1722]">
+            <div className="relative flex min-h-65 items-center justify-center overflow-hidden bg-[#f8fafc] p-8 dark:bg-[#0f1722]">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,127,143,0.12),transparent_58%)] dark:bg-[radial-gradient(circle_at_center,rgba(255,216,20,0.10),transparent_58%)]" />
 
-              <div className="relative z-10 flex w-full max-w-xl items-center justify-center rounded-[2rem] border border-slate-200 bg-white px-8 py-10 shadow-[0_25px_70px_rgba(15,23,42,0.10)] dark:border-white/10 dark:bg-white">
+              <div className="relative z-10 flex w-full max-w-xl items-center justify-center rounded-4xlrder border-slate-200 bg-white px-8 py-10 shadow-[0_25px_70px_rgba(15,23,42,0.10)] dark:border-white/10 dark:bg-white">
                 <motion.img
                   src={STARTUP_INDIA_LOGO}
                   alt="Startup India"
@@ -168,7 +161,7 @@ export default function AboutSection() {
                   whileHover={{ scale: 1.04 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.45 }}
-                  className="w-full max-w-[420px] object-contain"
+                  className="w-full max-w-105 object-contain"
                 />
               </div>
             </div>
@@ -181,13 +174,13 @@ export default function AboutSection() {
             initial={{ opacity: 0, y: 26 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="flex min-h-[360px] flex-col rounded-[1.6rem] border border-slate-200 bg-white p-6 shadow-[0_18px_60px_rgba(15,23,42,0.06)] dark:border-white/10 dark:bg-[#131921]"
+            className="flex min-h-90 flex-col rounded-[1.6rem] border border-slate-200 bg-white p-6 shadow-[0_18px_60px_rgba(15,23,42,0.06)] dark:border-white/10 dark:bg-[#131921]"
           >
             <h3 className="text-xl font-black text-[#007f8f]">
               Our Mission & Vision
             </h3>
 
-            <div className="mt-3 h-[3px] w-12 rounded-full bg-[#ffd814]" />
+            <div className="mt-3 h-0.75 w-12 rounded-full bg-[#ffd814]" />
 
             <div className="mt-5 grid flex-1 gap-5 sm:grid-cols-2">
               {[
@@ -227,11 +220,11 @@ export default function AboutSection() {
             initial={{ opacity: 0, y: 26 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="flex min-h-[360px] flex-col rounded-[1.6rem] border border-slate-200 bg-white p-6 shadow-[0_18px_60px_rgba(15,23,42,0.06)] dark:border-white/10 dark:bg-[#131921]"
+            className="flex min-h-90-col rounded-[1.6rem] border border-slate-200 bg-white p-6 shadow-[0_18px_60px_rgba(15,23,42,0.06)] dark:border-white/10 dark:bg-[#131921]"
           >
             <h3 className="text-xl font-black text-[#007f8f]">We Work For</h3>
 
-            <div className="mt-3 h-[3px] w-12 rounded-full bg-[#ffd814]" />
+            <div className="mt-3 h-0.75 w-12 rounded-full bg-[#ffd814]" />
 
             <div className="mt-5 grid flex-1 gap-4 sm:grid-cols-3">
               {growthCards.map((item) => {
@@ -266,7 +259,7 @@ export default function AboutSection() {
             initial={{ opacity: 0, y: 26 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="grid w-full overflow-hidden rounded-[2rem] bg-gradient-to-r from-[#00656d] via-[#007f8f] to-[#00545d] text-white shadow-[0_22px_70px_rgba(0,127,143,0.25)] sm:grid-cols-2 lg:grid-cols-4"
+            className="grid w-full overflow-hidden rounded-4xl-bg-linear-to-rom-[#00656d] via-[#007f8f] to-[#00545d] text-white shadow-[0_22px_70px_rgba(0,127,143,0.25)] sm:grid-cols-2 lg:grid-cols-4"
           >
             {stats.map((item) => {
               const Icon = item.icon;
@@ -274,7 +267,7 @@ export default function AboutSection() {
               return (
                 <div
                   key={item.label}
-                  className="flex min-h-[150px] items-center justify-center gap-5 border-b border-white/20 px-6 py-7 sm:border-r lg:border-b-0 lg:last:border-r-0"
+                  className="flex min-h-37.5 items-center justify-center gap-5 border-b border-white/20 px-6 py-7 sm:border-r lg:border-b-0 lg:last:border-r-0"
                 >
                   <Icon className="h-10 w-10" />
 

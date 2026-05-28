@@ -12,14 +12,11 @@ import {
   ShieldCheck,
   Smartphone,
   Sparkles,
-  Star,
   Target,
-  TrendingUp,
-  Users,
   Zap,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import type { ElementType, ReactNode } from "react";
+import type { ElementType } from "react";
 
 const services = [
   {
@@ -156,7 +153,7 @@ export default function ServicesSection() {
             Smart Solutions for Real{" "}
             <span className="relative inline-block text-[#007C89]">
               Business Growth
-              <span className="absolute -bottom-1 left-0 -z-0 h-2 w-full rounded-full bg-[#ffd814]" />
+              <span className="absolute -bottom-1 left-0 z-0 h-2 w-full rounded-full bg-[#ffd814]" />
             </span>
           </h2>
 
@@ -178,7 +175,7 @@ export default function ServicesSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.55 }}
-          className="relative mt-6 overflow-hidden rounded-[1.6rem] bg-gradient-to-br from-[#006b75] via-[#007C89] to-[#004f57] p-5 text-white shadow-[0_25px_60px_rgba(0,124,137,0.25)] sm:rounded-[2rem] sm:p-8"
+          className="relative mt-6 overflow-hidden rounded-[1.6rem] bg-linear-to-br from-[#006b75] via-[#007C89] to-[#004f57] p-5 text-white shadow-[0_25px_60px_rgba(0,124,137,0.25)] sm:rounded-4xl sm:p-8"
         >
           <div className="absolute left-0 top-0 h-32 w-32 rounded-full border border-white/10" />
           <div className="absolute -bottom-10 -left-10 h-40 w-40 rounded-full border border-white/10" />
@@ -219,7 +216,7 @@ export default function ServicesSection() {
                 return (
                   <div
                     key={String(item.title)}
-                    className="flex min-h-[150px] flex-col items-center justify-center rounded-3xl border border-white/10 bg-white/5 px-4 py-5 text-center backdrop-blur-sm sm:min-h-[185px]"
+                    className="flex min-h-37.5 flex-col items-center justify-center rounded-3xl border border-white/10 bg-white/5 px-4 py-5 text-center backdrop-blur-sm sm:min-h-46.25"
                   >
                     <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white/10">
                       <Icon size={26} />
@@ -278,7 +275,7 @@ function ServiceCard({
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.45, delay: index * 0.04 }}
       whileHover={{ y: -7 }}
-      className="group relative flex min-h-[310px] flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition-all duration-300 hover:border-[#007C89]/30 hover:shadow-xl hover:shadow-[#007C89]/10 dark:border-white/10 dark:bg-[#131921] sm:min-h-[330px] sm:p-6"
+      className="group relative flex min-h-77.5 flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition-all duration-300 hover:border-[#007C89]/30 hover:shadow-xl hover:shadow-[#007C89]/10 dark:border-white/10 dark:bg-[#131921] sm:min-h-82.5 sm:p-6"
     >
       <div
         className={`absolute right-5 top-5 rounded-xl px-3 py-1 text-xs font-black ${colors.number}`}

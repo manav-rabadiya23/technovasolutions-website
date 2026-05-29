@@ -33,10 +33,10 @@ const growthCards = [
 ];
 
 const stats = [
-  { value: "150+", label: "Happy Clients", icon: Users },
-  { value: "250+", label: "Projects Completed", icon: Code2 },
-  { value: "25+", label: "Team Members", icon: Users },
-  { value: "5+", label: "Years of Experience", icon: BadgeCheck },
+  { value: "39+", label: "Happy Clients", icon: Users },
+  { value: "25+", label: "Projects Completed", icon: Code2 },
+  { value: "6+", label: "Team Members", icon: Users },
+  { value: "1+", label: "Years of Experience", icon: BadgeCheck },
 ];
 
 const pillars = [

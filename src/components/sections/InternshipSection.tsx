@@ -15,9 +15,7 @@ import {
   UsersRound,
   WandSparkles,
 } from "lucide-react";
-
-const applyLink =
-  "https://docs.google.com/forms/d/e/1FAIpQLScLi9woOfxYBvRM5APpuhthe-ahHqDP6p-iIdjJM6dM4H1vmg/viewform";
+import { Link } from "react-router-dom";
 
 const process = [
   {
@@ -478,10 +476,8 @@ export default function InternshipSection() {
                     </div>
 
                     <div className="mt-auto pt-5">
-                      <a
-                        href={applyLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                      <Link
+                        to="/internship-apply"
                         className={`inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r ${item.gradient} px-4 py-2.5 text-sm font-black text-white shadow-lg transition duration-300 hover:scale-[1.02]`}
                       >
                         Apply Now
@@ -489,7 +485,7 @@ export default function InternshipSection() {
                           size={16}
                           className="transition group-hover:translate-x-1"
                         />
-                      </a>
+                      </Link>
                     </div>
                   </motion.article>
                 );

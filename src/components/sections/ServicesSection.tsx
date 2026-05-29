@@ -26,8 +26,8 @@ const services = [
     color: "teal",
   },
   {
-    title: "Local SEO Services",
-    desc: "Strategic local SEO to improve rankings, increase nearby traffic, and generate quality business leads.",
+    title: "WordPress Development",
+    desc: "Custom WordPress solutions designed for speed, scalability, and a seamless user experience across all devices.",
     icon: Search,
     color: "green",
   },
@@ -38,14 +38,14 @@ const services = [
     color: "blue",
   },
   {
-    title: "Local Business Listing Management",
-    desc: "Consistent business information across trusted platforms to build authority and improve visibility.",
+    title: "Digital Marking",
+    desc: "Boost your brand visibility with strategic campaigns, social media growth, and performance-driven marketing solutions.",
     icon: Building2,
     color: "purple",
   },
   {
-    title: "GBP Optimization Service",
-    desc: "Advanced optimization to improve impressions, direction requests, calls, and customer actions.",
+    title: "Ai Automation",
+    desc: "Leverage intelligent automation to optimize operations, enhance efficiency, and accelerate business growth.",
     icon: Zap,
     color: "yellow",
   },
@@ -289,7 +289,7 @@ function ServiceCard({
         <Icon size={30} strokeWidth={2.3} />
       </div>
 
-      <h3 className="mt-6 text-lg font-black leading-snug text-slate-950 dark:text-white sm:text-xl">
+      <h3 className="mt-5 font-['Poppins'] text-2xl font-black leading-tight text-slate-900 dark:text-white">
         {service.title}
       </h3>
 

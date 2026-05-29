@@ -12,7 +12,7 @@ import InternshipSection from "./components/sections/InternshipSection";
 import PortfolioSection from "./components/sections/PortfolioSection";
 import TeamSection from "./components/sections/TeamSection";
 import ScrollToTop from "./components/ScrollToTop";
-
+import InternshipApplySection from "./components/sections/InternshipApplySection";
 export default function App() {
   const [dark, setDark] = useState(() =>
     document.documentElement.classList.contains("dark"),
@@ -43,6 +43,10 @@ export default function App() {
           <Route path="/portfolio" element={<PortfolioSection />} />
           <Route path="/contact" element={<ContactSection />} />
           <Route path="/team" element={<TeamSection />} />
+          <Route
+            path="/internship-apply"
+            element={<InternshipApplySection />}
+          />{" "}
         </Routes>
       </main>
 

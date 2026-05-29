@@ -23,6 +23,21 @@ const projects = [
     image: "gujarati-rasoi.png",
     link: "https://restaurant-tau-brown.vercel.app/",
   },
+  {
+    title: "Dhruvi Enterprise",
+    category: "Finance & Insurance",
+    desc: "This is a space dedicated to elevating your everyday style. To help you elevate your look, your comfort, your confidence, your wardrobe..",
+    image: "dhruvi-enterprise.png",
+    link: "https://dhruvi-enterprise-pearl.vercel.app/",
+  },
+
+  {
+    title: "Kuber Jewellers",
+    category: "Jewelry eCommerce",
+    desc: "A premium jewelry website created to showcase products beautifully, build brand trust, and give customers a smooth browsing experience.",
+    image: "kuber-jewellers.png",
+    link: "https://kuber-opal.vercel.app/",
+  },
 ];
 
 export default function PortfolioSection() {

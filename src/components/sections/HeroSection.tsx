@@ -74,10 +74,10 @@ const services = [
 ];
 
 const stats = [
-  { value: "150", label: "Global Deployments" },
-  { value: "99.9%", label: "Uptime SLA" },
-  { value: "45+", label: "Neural Frameworks" },
-  { value: "10M+", label: "Data Points Processed" },
+  { value: "20+", label: "AI & Digital Projects Delivered" },
+  { value: "90%", label: "System Reliability & Performance" },
+  { value: "5+", label: "AI Automation & Smart Solutions" },
+  { value: "15+", label: "Users & Workflow Interactions Managed" },
 ];
 
 export default function HeroSection() {

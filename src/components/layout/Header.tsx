@@ -62,7 +62,7 @@ export default function Header({ dark, setDark }: Props) {
             </h1>
 
             <p
-              className="hidden truncate text-[8px] font-semibold tracking-[0.08em] text-[#061B46]/75 sm:block xl:text-[9px] dark:text-white/55"
+              className="hidden mt-1 text-center text-[12px] font-semibold tracking-[0.08em] text-[#061B46]/75 sm:block xl:text-[11px] dark:text-white/55"
               style={{ fontFamily: "'Georgia', 'Times New Roman', serif" }}
             >
               AI Powered ~ Smart Digital Solutions

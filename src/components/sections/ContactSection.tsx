@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { type ElementType, type FormEvent, useState } from "react";
 import {
-  ArrowRight,
   Clock,
   Mail,
   MapPin,
@@ -11,6 +10,8 @@ import {
   ShieldCheck,
   User,
 } from "lucide-react";
+
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xlgpbwrn";
 
 const contactCards = [
   {
@@ -46,6 +47,8 @@ type ContactForm = {
   message: string;
 };
 
+type FieldErrors = Partial<Record<keyof ContactForm, string>>;
+
 const initialForm: ContactForm = {
   name: "",
   email: "",
@@ -53,18 +56,32 @@ const initialForm: ContactForm = {
   message: "",
 };
 
-const recipientEmail = "support.technovasolutions@gmail.com";
-
 export default function ContactSection() {
   const [form, setForm] = useState<ContactForm>(initialForm);
-  const [error, setError] = useState("");
+  const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
 
   const updateField = (field: keyof ContactForm) => (value: string) => {
-    setError("");
     setForm((current) => ({ ...current, [field]: value }));
+    setSuccessMessage("");
+
+    if (field === "name") {
+      if (value && !/^[A-Za-z\s]+$/.test(value)) {
+        setFieldErrors((current) => ({
+          ...current,
+          name: "Only letters are allowed.",
+        }));
+      } else {
+        setFieldErrors((current) => ({ ...current, name: "" }));
+      }
+      return;
+    }
+
+    setFieldErrors((current) => ({ ...current, [field]: "" }));
   };
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     const trimmedForm = {
@@ -74,24 +91,60 @@ export default function ContactSection() {
       message: form.message.trim(),
     };
 
-    if (!trimmedForm.name || !trimmedForm.email || !trimmedForm.message) {
-      setError("Please enter your name, email, and message.");
-      return;
+    const errors: FieldErrors = {};
+
+    if (!trimmedForm.name) {
+      errors.name = "Name is required.";
+    } else if (!/^[A-Za-z\s]+$/.test(trimmedForm.name)) {
+      errors.name = "Only letters are allowed.";
     }
 
-    const subject = `Project enquiry from ${trimmedForm.name}`;
-    const body = [
-      `Name: ${trimmedForm.name}`,
-      `Email: ${trimmedForm.email}`,
-      `Phone: ${trimmedForm.phone || "Not provided"}`,
-      "",
-      "Message:",
-      trimmedForm.message,
-    ].join("\n");
+    if (!trimmedForm.email) {
+      errors.email = "Email is required.";
+    }
 
-    window.location.href = `mailto:${recipientEmail}?subject=${encodeURIComponent(
-      subject,
-    )}&body=${encodeURIComponent(body)}`;
+    if (!trimmedForm.phone) {
+      errors.phone = "Phone number is required.";
+    }
+
+    if (!trimmedForm.message) {
+      errors.message = "Message is required.";
+    }
+
+    setFieldErrors(errors);
+
+    if (Object.keys(errors).length > 0) return;
+
+    try {
+      setIsSubmitting(true);
+
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(trimmedForm),
+      });
+
+      if (!response.ok) {
+        throw new Error("Form submission failed");
+      }
+
+      setForm(initialForm);
+      setFieldErrors({});
+      setSuccessMessage("success");
+
+      setTimeout(() => {
+        setSuccessMessage("");
+      }, 5000);
+    } catch (error) {
+      console.error(error);
+      setSuccessMessage("");
+      alert("Message not sent. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -100,7 +153,6 @@ export default function ContactSection() {
       className="overflow-hidden bg-[#f3f3f3] px-4 py-16 text-slate-900 dark:bg-[#0f1111] dark:text-white sm:px-6 sm:py-20 lg:px-8"
     >
       <div className="mx-auto w-full max-w-7xl">
-        {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 35 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -126,7 +178,6 @@ export default function ContactSection() {
         </motion.div>
 
         <div className="mt-12 grid w-full gap-8 sm:mt-16 lg:grid-cols-[0.9fr_1.1fr]">
-          {/* LEFT */}
           <motion.div
             initial={{ opacity: 0, x: -35 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -165,7 +216,6 @@ export default function ContactSection() {
               </div>
             </div>
 
-            {/* Contact Cards */}
             <div className="grid w-full gap-5 sm:grid-cols-2">
               {contactCards.map((item, index) => {
                 const Icon = item.icon;
@@ -188,8 +238,7 @@ export default function ContactSection() {
                       {item.title}
                     </h4>
 
-                    <p className="mt-2 wrap-break-words text-[12px] leading-6 text-slate-600 dark:text-white/60">
-                      {" "}
+                    <p className="mt-2 break-words text-[12px] leading-6 text-slate-600 dark:text-white/60">
                       {item.text}
                     </p>
                   </motion.a>
@@ -198,7 +247,6 @@ export default function ContactSection() {
             </div>
           </motion.div>
 
-          {/* FORM */}
           <motion.form
             onSubmit={handleSubmit}
             initial={{ opacity: 0, x: 35 }}
@@ -224,8 +272,10 @@ export default function ContactSection() {
                 value={form.name}
                 onChange={updateField("name")}
                 autoComplete="name"
+                error={fieldErrors.name}
                 required
               />
+
               <Input
                 icon={Mail}
                 name="email"
@@ -234,6 +284,7 @@ export default function ContactSection() {
                 value={form.email}
                 onChange={updateField("email")}
                 autoComplete="email"
+                error={fieldErrors.email}
                 required
               />
             </div>
@@ -247,13 +298,25 @@ export default function ContactSection() {
                 value={form.phone}
                 onChange={updateField("phone")}
                 autoComplete="tel"
+                error={fieldErrors.phone}
+                required
               />
             </div>
 
-            <div className="mt-5 flex min-h-40 w-full max-w-full gap-3 rounded-xl border border-slate-300 bg-white px-4 py-4 shadow-sm focus-within:border-[#007185] dark:border-white/10 dark:bg-[#0f1111] sm:gap-4 sm:px-5">
+            <div
+              className={`relative mt-5 min-h-40 w-full rounded-xl border bg-white shadow-sm dark:bg-[#0f1111] ${
+                fieldErrors.message
+                  ? "border-red-500 focus-within:border-red-500"
+                  : "border-slate-300 focus-within:border-[#007185] dark:border-white/10"
+              }`}
+            >
               <MessageCircle
-                className="mt-1 text-slate-500 dark:text-white/50"
                 size={20}
+                className={`absolute left-5 top-5 ${
+                  fieldErrors.message
+                    ? "text-red-500"
+                    : "text-slate-500 dark:text-white/50"
+                }`}
               />
 
               <textarea
@@ -263,25 +326,47 @@ export default function ContactSection() {
                 onChange={(event) => updateField("message")(event.target.value)}
                 maxLength={1200}
                 required
-                className="h-32 w-full resize-none bg-transparent text-slate-900 outline-none placeholder:text-slate-500 dark:text-white dark:placeholder:text-white/50
-[&:-webkit-autofill]:shadow-[0_0_0_1000px_#ffffff_inset]
-dark:[&:-webkit-autofill]:shadow-[0_0_0_1000px_#0f1111_inset]
-[&:-webkit-autofill]:[-webkit-text-fill-color:#0f172a]
-dark:[&:-webkit-autofill]:[-webkit-text-fill-color:#ffffff]"
+                className="h-52 w-full resize-none rounded-xl bg-transparent py-5 pl-14 pr-5 text-slate-900 outline-none placeholder:text-slate-500 dark:text-white dark:placeholder:text-white/50"
               />
             </div>
 
-            {error && (
-              <p className="mt-4 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-semibold text-red-700 dark:border-red-400/30 dark:bg-red-950/30 dark:text-red-200">
-                {error}
+            {fieldErrors.message && (
+              <p className="mt-2 text-sm font-semibold text-red-500">
+                {fieldErrors.message}
               </p>
+            )}
+
+            {successMessage && (
+              <motion.div
+                initial={{ opacity: 0, y: 15, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ duration: 0.4 }}
+                className="mt-5 rounded-2xl border border-emerald-500/30 bg-gradient-to-r from-emerald-500/10 to-green-500/10 p-4"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-500 font-bold text-white">
+                    ✓
+                  </div>
+
+                  <div>
+                    <p className="font-bold text-emerald-600 dark:text-emerald-400">
+                      Message Sent Successfully
+                    </p>
+
+                    <p className="text-sm text-slate-600 dark:text-white/60">
+                      Our team will contact you within 24 hours.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
             )}
 
             <button
               type="submit"
-              className="mt-6 flex w-full items-center justify-center gap-3 rounded-xl bg-[#ffd814] px-6 py-4 text-base font-bold text-[#111827] shadow-sm transition hover:bg-[#f7ca00]"
+              disabled={isSubmitting}
+              className="mt-6 flex w-full items-center justify-center gap-3 rounded-xl bg-[#ffd814] px-6 py-4 text-base font-bold text-[#111827] shadow-sm transition hover:bg-[#f7ca00] disabled:cursor-not-allowed disabled:opacity-70"
             >
-              Send Message
+              {isSubmitting ? "Sending..." : "Send Message"}
               <Send size={19} />
             </button>
 
@@ -291,32 +376,6 @@ dark:[&:-webkit-autofill]:[-webkit-text-fill-color:#ffffff]"
             </p>
           </motion.form>
         </div>
-
-        {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 35 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.65 }}
-          className="mt-14 w-full max-w-full overflow-hidden rounded-2xl bg-[#131921] p-6 text-center text-white shadow-lg sm:mt-16 sm:p-10"
-        >
-          <h3 className="text-2xl font-black sm:text-4xl">
-            Ready to grow with TechNova?
-          </h3>
-
-          <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-slate-300">
-            Let’s create a website, digital strategy, or AI-powered solution
-            that helps your business look professional and attract customers.
-          </p>
-
-          <a
-            href="mailto:support.technovasolutions@gmail.com"
-            className="mt-7 inline-flex w-full items-center justify-center gap-3 rounded-xl bg-[#ffd814] px-6 py-4 text-sm font-bold text-[#111827] shadow-sm transition hover:bg-[#f7ca00] sm:w-auto sm:px-8"
-          >
-            Start a Conversation
-            <ArrowRight size={18} />
-          </a>
-        </motion.div>
       </div>
     </section>
   );
@@ -331,6 +390,7 @@ function Input({
   onChange,
   autoComplete,
   required = false,
+  error,
 }: {
   icon: ElementType;
   name: keyof ContactForm;
@@ -340,26 +400,40 @@ function Input({
   onChange: (value: string) => void;
   autoComplete?: string;
   required?: boolean;
+  error?: string;
 }) {
   return (
-    <div className="flex w-full max-w-full items-center gap-3 rounded-xl border border-slate-300 bg-white px-4 py-4 shadow-sm focus-within:border-[#007185] dark:border-white/10 dark:bg-[#0f1111] sm:gap-4 sm:px-5">
-      <Icon size={20} className="text-slate-500 dark:text-white/50" />
+    <div className="w-full">
+      <div
+        className={`flex w-full max-w-full items-center gap-3 rounded-xl border bg-white px-4 py-4 shadow-sm dark:bg-[#0f1111] sm:gap-4 sm:px-5 ${
+          error
+            ? "border-red-500 focus-within:border-red-500"
+            : "border-slate-300 focus-within:border-[#007185] dark:border-white/10"
+        }`}
+      >
+        <Icon
+          size={20}
+          className={
+            error ? "text-red-500" : "text-slate-500 dark:text-white/50"
+          }
+        />
 
-      <input
-        name={name}
-        type={type}
-        placeholder={placeholder}
-        value={value}
-        onChange={(event) => onChange(event.target.value)}
-        autoComplete={autoComplete}
-        maxLength={name === "phone" ? 20 : 120}
-        required={required}
-        className="w-full bg-transparent text-slate-900 outline-none placeholder:text-slate-500 dark:text-white dark:placeholder:text-white/50
-[&:-webkit-autofill]:shadow-[0_0_0_1000px_#ffffff_inset]
-dark:[&:-webkit-autofill]:shadow-[0_0_0_1000px_#0f1111_inset]
-[&:-webkit-autofill]:[-webkit-text-fill-color:#0f172a]
-dark:[&:-webkit-autofill]:[-webkit-text-fill-color:#ffffff]"
-      />
+        <input
+          name={name}
+          type={type}
+          placeholder={placeholder}
+          value={value}
+          onChange={(event) => onChange(event.target.value)}
+          autoComplete={autoComplete}
+          maxLength={name === "phone" ? 20 : 120}
+          required={required}
+          className="w-full bg-transparent text-slate-900 outline-none placeholder:text-slate-500 dark:text-white dark:placeholder:text-white/50"
+        />
+      </div>
+
+      {error && (
+        <p className="mt-2 text-sm font-semibold text-red-500">{error}</p>
+      )}
     </div>
   );
 }

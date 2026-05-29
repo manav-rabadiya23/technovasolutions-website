@@ -68,7 +68,8 @@ export default function AboutSection() {
       id="about"
       className="relative overflow-hidden bg-[#f7fafa] px-4 pb-14 pt-12 text-[#071126] dark:bg-[#0f1111] dark:text-white sm:px-6 lg:px-8"
     >
-      <div className="mx-auto max-w-368">
+      <div className="mx-auto max-w-450">
+        {" "}
         {/* HEADING */}
         <motion.div
           initial={{ opacity: 0, y: 22 }}
@@ -152,7 +153,7 @@ export default function AboutSection() {
             <div className="relative flex min-h-65 items-center justify-center overflow-hidden bg-[#f8fafc] p-8 dark:bg-[#0f1722]">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,127,143,0.12),transparent_58%)] dark:bg-[radial-gradient(circle_at_center,rgba(255,216,20,0.10),transparent_58%)]" />
 
-              <div className="relative z-10 flex w-full max-w-xl items-center justify-center rounded-4xlrder border-slate-200 bg-white px-8 py-10 shadow-[0_25px_70px_rgba(15,23,42,0.10)] dark:border-white/10 dark:bg-white">
+              <div className="relative z-10 flex w-full max-w-xl items-center justify-center rounded-4xl border border-slate-200 bg-white px-8 py-10 shadow-[0_25px_70px_rgba(15,23,42,0.10)] dark:border-white/10 dark:bg-white">
                 <motion.img
                   src={STARTUP_INDIA_LOGO}
                   alt="Startup India"
@@ -220,7 +221,7 @@ export default function AboutSection() {
             initial={{ opacity: 0, y: 26 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="flex min-h-90-col rounded-[1.6rem] border border-slate-200 bg-white p-6 shadow-[0_18px_60px_rgba(15,23,42,0.06)] dark:border-white/10 dark:bg-[#131921]"
+            className="flex min-h-90 flex-col rounded-[1.6rem] border border-slate-200 bg-white p-6 shadow-[0_18px_60px_rgba(15,23,42,0.06)] dark:border-white/10 dark:bg-[#131921]"
           >
             <h3 className="text-xl font-black text-[#007f8f]">We Work For</h3>
 
@@ -259,7 +260,7 @@ export default function AboutSection() {
             initial={{ opacity: 0, y: 26 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="grid w-full overflow-hidden rounded-4xl-bg-linear-to-rom-[#00656d] via-[#007f8f] to-[#00545d] text-white shadow-[0_22px_70px_rgba(0,127,143,0.25)] sm:grid-cols-2 lg:grid-cols-4"
+            className="grid w-full overflow-hidden rounded-4xl bg-linear-to-r from-[#00656d] via-[#007f8f] to-[#00545d] text-white shadow-[0_22px_70px_rgba(0,127,143,0.25)] sm:grid-cols-2 lg:grid-cols-4"
           >
             {stats.map((item) => {
               const Icon = item.icon;

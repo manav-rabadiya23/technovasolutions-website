@@ -1,21 +1,20 @@
+import type { ElementType } from "react";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
-  Code2,
   Crown,
+  Mail,
   MessageCircle,
   Send,
-  Smartphone,
   UserRoundCheck,
-  Users,
 } from "lucide-react";
 
 type Member = {
   name: string;
-  role: string;
+  role?: string;
   image: string;
   desc: string;
-  icon: React.ElementType;
+  icon?: ElementType;
   email?: string;
   phone?: string;
 };
@@ -27,11 +26,11 @@ const leadershipTeam: Member[] = [
     image: "founder.jpeg",
     desc: "Leading TechNova Solutions with innovation, strategic vision, and future-ready digital transformation.",
     icon: Crown,
-    email: "founder@technovasolutions.in",
-    phone: "919999999999",
+    email: "Suryansh.technovasolutions@gmail.com",
+    phone: "9601451370",
   },
   {
-    name: "Neha Sharma",
+    name: "ABC",
     role: "Co-Founder",
     image:
       "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=900&auto=format&fit=crop",
@@ -42,70 +41,40 @@ const leadershipTeam: Member[] = [
   },
 ];
 
-const teamLead: Member[] = [
+const coreTeam: Member[] = [
   {
-    name: "Rohit Mehta",
-    role: "Team Lead",
-    image:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=900&auto=format&fit=crop",
-    desc: "Managing workflows, guiding developers, and ensuring high-quality project delivery.",
-    icon: Users,
+    name: "Shreya Rajput",
+    image: "shreya-rajput.png",
+    desc: "Managing Software Requirement Specifications (SRS), workflow planning, and project documentation to streamline operations and support successful project delivery.",
+  },
+  {
+    name: "Tanis Patel",
+    image: "tanis-patel.png",
+    desc: "Ensuring smooth coordination, structured workflows, and efficient project management across initiatives.",
+  },
+  {
+    name: "Pallavi Ramoliya",
+    image: "pallavi-ramoliya.jpg",
+    desc: "Contributing to organizational growth through collaboration, responsibility, and a results-driven mindset.",
+  },
+  {
+    name: "Krisha Patel",
+    image: "krisha patel.jpg",
+    desc: "Committed to helping transform ideas into impactful outcomes through dedication and innovation.",
+  },
+  {
+    name: "Manav Rabadiya",
+    image: "manav-rabadiya.jpeg",
+    desc: "Focused on delivering value through teamwork, consistency, and continuous learning.",
+  },
+  {
+    name: "Kush Patel",
+    image: "kush-patel.jpeg",
+    desc: "Supporting the team with fresh perspectives, determination, and a passion for excellence.",
   },
 ];
 
-const webDevelopers: Member[] = [
-  {
-    name: "Karan Joshi",
-    role: "Web Developer",
-    image:
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=900&auto=format&fit=crop",
-    desc: "Building premium websites with responsive layouts, performance optimization, and modern UI systems.",
-    icon: Code2,
-  },
-  {
-    name: "Priya Verma",
-    role: "Frontend Developer",
-    image:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=900&auto=format&fit=crop",
-    desc: "Transforming concepts into interactive digital experiences with clean frontend architecture.",
-    icon: Code2,
-  },
-];
-
-const appDevelopers: Member[] = [
-  {
-    name: "Sagar Vora",
-    role: "App Developer",
-    image:
-      "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=900&auto=format&fit=crop",
-    desc: "Creating scalable mobile applications focused on usability, speed, and business performance.",
-    icon: Smartphone,
-  },
-  {
-    name: "Riya Shah",
-    role: "Mobile Developer",
-    image:
-      "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?q=80&w=900&auto=format&fit=crop",
-    desc: "Designing mobile experiences that feel smooth, reliable, and modern across all devices.",
-    icon: Smartphone,
-  },
-];
-
-function SectionTitle({ eyebrow, title }: { eyebrow: string; title: string }) {
-  return (
-    <div className="mb-10">
-      <p className="text-xs font-black uppercase tracking-[0.2em] text-[#007c89] dark:text-cyan-300 sm:tracking-[0.32em]">
-        {eyebrow}
-      </p>
-
-      <h2 className="mt-3 text-2xl font-black text-[#111827] dark:text-white sm:text-4xl">
-        {title}
-      </h2>
-    </div>
-  );
-}
-
-function MemberCard({ member, index }: { member: Member; index: number }) {
+function LeadershipCard({ member, index }: { member: Member; index: number }) {
   const Icon = member.icon;
 
   return (
@@ -114,24 +83,26 @@ function MemberCard({ member, index }: { member: Member; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: index * 0.08 }}
       viewport={{ once: true }}
-      className="group w-full max-w-full overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-lg shadow-slate-200/70 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl dark:border-white/10 dark:bg-[#111827] dark:shadow-black/30 sm:rounded-[26px]"
+      className="group w-full overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-lg shadow-slate-200/70 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl dark:border-white/10 dark:bg-[#111827] dark:shadow-black/30"
     >
-      <div className="relative h-105 overflow-hidden rounded-4xl bg-[#e9edf2]">
+      <div className="relative h-[340px] overflow-hidden rounded-b-[2rem] bg-[#e9edf2] sm:h-[400px]">
         <img
           src={member.image}
           alt={member.name}
           className="h-full w-full object-cover object-top transition duration-700 group-hover:scale-105"
         />
 
-        <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/10 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
 
-        <div className="absolute bottom-5 left-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-white/15 text-white backdrop-blur-xl">
-          <Icon size={22} />
-        </div>
+        {Icon && (
+          <div className="absolute bottom-5 left-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-white/15 text-white backdrop-blur-xl">
+            <Icon size={22} />
+          </div>
+        )}
       </div>
 
       <div className="p-6">
-        <p className="text-xs font-black uppercase tracking-[0.18em] text-[#007c89] dark:text-cyan-300">
+        <p className="text-xs font-black uppercase tracking-[0.22em] text-[#007c89] dark:text-cyan-300">
           {member.role}
         </p>
 
@@ -143,25 +114,59 @@ function MemberCard({ member, index }: { member: Member; index: number }) {
           {member.desc}
         </p>
 
-        {(member.role === "Founder" || member.role === "Co-Founder") && (
-          <div className="mt-5 flex items-center gap-3">
+        <div className="mt-5 flex items-center gap-4">
+          {member.email && (
             <a
               href={`mailto:${member.email}`}
-              className="rounded-full bg-[#007c89] px-4 py-2 text-sm font-bold text-white transition hover:scale-105"
+              aria-label={`Mail ${member.name}`}
+              className="flex h-12 w-12 items-center justify-center rounded-full bg-[#007c89] text-white shadow-lg shadow-cyan-500/25 transition-all duration-300 hover:scale-110"
             >
-              Mail
+              <Mail size={22} />
             </a>
+          )}
 
+          {member.phone && (
             <a
               href={`https://wa.me/${member.phone}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full bg-[#25D366] px-4 py-2 text-sm font-bold text-white transition hover:scale-105"
+              aria-label={`Message ${member.name}`}
+              className="flex h-12 w-12 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-green-500/25 transition-all duration-300 hover:scale-110"
             >
-              Message
+              <MessageCircle size={22} />
             </a>
-          </div>
-        )}
+          )}
+        </div>
+      </div>
+    </motion.article>
+  );
+}
+
+function CoreTeamCard({ member, index }: { member: Member; index: number }) {
+  return (
+    <motion.article
+      initial={{ opacity: 0, y: 28 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.55, delay: index * 0.06 }}
+      viewport={{ once: true }}
+      className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-lg shadow-slate-200/70 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl dark:border-white/10 dark:bg-[#111827] dark:shadow-black/30"
+    >
+      <div className="h-[300px] overflow-hidden rounded-b-[2rem] bg-[#e9edf2] sm:h-[340px]">
+        <img
+          src={member.image}
+          alt={member.name}
+          className="h-full w-full object-cover object-top transition duration-700 group-hover:scale-105"
+        />
+      </div>
+
+      <div className="p-6">
+        <h3 className="text-2xl font-black tracking-tight text-[#111827] dark:text-white">
+          {member.name}
+        </h3>
+
+        <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-zinc-300">
+          {member.desc}
+        </p>
       </div>
     </motion.article>
   );
@@ -170,12 +175,10 @@ function MemberCard({ member, index }: { member: Member; index: number }) {
 export default function TeamSection() {
   return (
     <main className="min-h-screen overflow-hidden bg-[#f5f7fb] dark:bg-[#050816]">
-      <section className="relative overflow-hidden px-4 pb-16 pt-10 sm:px-6 sm:pb-24 lg:px-8 lg:pt-16">
-        {/* Background Glow */}
-        <div className="absolute left-1/2 top-0 h-125 w-125 -translate-x-1/2 rounded-full bg-cyan-400/10 blur-3xl" />
+      <section className="relative overflow-hidden px-4 pb-16 pt-28 sm:px-6 sm:pb-24 lg:px-8 lg:pt-32">
+        <div className="absolute left-1/2 top-0 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-cyan-400/10 blur-3xl" />
 
         <div className="relative mx-auto w-full max-w-7xl">
-          {/* HERO */}
           <motion.div
             initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
@@ -185,13 +188,13 @@ export default function TeamSection() {
             <p className="text-xs font-black uppercase tracking-[0.22em] text-[#007c89] dark:text-cyan-300 sm:tracking-[0.38em]">
               OUR TEAM
             </p>
+
             <h1
               className="mt-6 text-[clamp(2rem,9vw,2.5rem)] font-black leading-[1.12] text-[#111827] dark:text-white sm:text-6xl lg:text-7xl"
               style={{ fontFamily: "'Georgia', serif" }}
             >
               Leadership That Drives
-              <span className="block leading-[1.12] text-[#007c89] dark:text-cyan-300">
-                {" "}
+              <span className="block text-[#007c89] dark:text-cyan-300">
                 Digital Growth
               </span>
             </h1>
@@ -203,27 +206,30 @@ export default function TeamSection() {
             </p>
           </motion.div>
 
-          {/* LEADERSHIP */}
           <div className="mt-16 grid w-full gap-8 sm:mt-20 lg:grid-cols-[0.75fr_1.25fr]">
-            {/* Left Creative Card */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.65 }}
               viewport={{ once: true }}
-              className="relative w-full max-w-full overflow-hidden rounded-3xl bg-[#111827] p-6 text-white shadow-2xl shadow-slate-300/60 dark:shadow-black/30 sm:rounded-[30px] sm:p-8"
+              className="relative overflow-hidden rounded-3xl bg-[#111827] p-6 text-white shadow-2xl shadow-slate-300/60 dark:shadow-black/30 sm:p-8"
             >
               <div className="absolute right-0 top-0 h-48 w-48 rounded-full bg-cyan-400/20 blur-3xl" />
 
               <div className="relative">
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 text-cyan-300 backdrop-blur-xl">
-                  <MessageCircle size={26} />
+                <div className="relative">
+                  <div className="flex h-20 w-20 items-center justify-center rounded-full border border-white/20 bg-white/10 p-2 backdrop-blur-xl shadow-lg shadow-cyan-500/20">
+                    <img
+                      src="/logo.jpeg"
+                      alt="TechNova Solutions"
+                      className="h-full w-full rounded-full object-cover"
+                    />
+                  </div>
+
+                  <p className="mt-8 text-xs font-black uppercase tracking-[0.25em] text-cyan-300">
+                    COMPANY VISION
+                  </p>
                 </div>
-
-                <p className="mt-7 text-xs font-black uppercase tracking-[0.2em] text-cyan-300 sm:tracking-[0.3em]">
-                  Company Vision
-                </p>
-
                 <h2 className="mt-4 text-2xl font-black leading-tight sm:text-4xl">
                   Building trusted digital experiences through innovation.
                 </h2>
@@ -243,7 +249,7 @@ export default function TeamSection() {
                   ].map((item) => (
                     <div
                       key={item}
-                      className="flex min-w-0 items-center gap-3 rounded-2xl border border-white/10 bg-white/6 px-4 py-4 text-sm font-semibold backdrop-blur-xl"
+                      className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/6 px-4 py-4 text-sm font-semibold backdrop-blur-xl"
                     >
                       <span className="h-2.5 w-2.5 rounded-full bg-[#ffd213]" />
                       {item}
@@ -253,63 +259,53 @@ export default function TeamSection() {
               </div>
             </motion.div>
 
-            {/* Leadership Cards */}
             <div>
-              <SectionTitle
-                eyebrow="Leadership Team"
-                title="Founder & Co-Founder"
-              />
+              <div className="mb-10">
+                <p className="text-xs font-black uppercase tracking-[0.32em] text-[#007c89] dark:text-cyan-300">
+                  Leadership Team
+                </p>
+
+                <h2 className="mt-3 text-2xl font-black text-[#111827] dark:text-white sm:text-4xl">
+                  Founder & Co-Founder
+                </h2>
+              </div>
 
               <div className="grid w-full gap-6 md:grid-cols-2">
                 {leadershipTeam.map((member, index) => (
-                  <MemberCard key={member.name} member={member} index={index} />
+                  <LeadershipCard
+                    key={member.name}
+                    member={member}
+                    index={index}
+                  />
                 ))}
               </div>
             </div>
           </div>
 
-          {/* TEAM LEAD */}
           <div className="mt-16 sm:mt-24">
-            <SectionTitle eyebrow="Core Team" title="Team Lead" />
+            <div className="mb-10 flex items-center gap-5">
+              <div className="h-px flex-1 bg-slate-300 dark:bg-white/10" />
+              <h2 className="text-center text-sm font-black uppercase tracking-[0.45em] text-[#007c89] dark:text-cyan-300 sm:text-base">
+                Core Team
+              </h2>
+              <div className="h-px flex-1 bg-slate-300 dark:bg-white/10" />
+            </div>
 
             <div className="grid w-full gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {teamLead.map((member, index) => (
-                <MemberCard key={member.name} member={member} index={index} />
+              {coreTeam.map((member, index) => (
+                <CoreTeamCard key={member.name} member={member} index={index} />
               ))}
             </div>
           </div>
 
-          {/* WEB TEAM */}
-          <div className="mt-16 sm:mt-24">
-            <SectionTitle eyebrow="Development Team" title="Web Developers" />
-
-            <div className="grid w-full gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {webDevelopers.map((member, index) => (
-                <MemberCard key={member.name} member={member} index={index} />
-              ))}
-            </div>
-          </div>
-
-          {/* APP TEAM */}
-          <div className="mt-16 sm:mt-24">
-            <SectionTitle eyebrow="Mobile Team" title="App Developers" />
-
-            <div className="grid w-full gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {appDevelopers.map((member, index) => (
-                <MemberCard key={member.name} member={member} index={index} />
-              ))}
-            </div>
-          </div>
-
-          {/* CTA */}
           <motion.div
             initial={{ opacity: 0, y: 35 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65 }}
             viewport={{ once: true }}
-            className="mt-16 flex w-full max-w-full flex-col items-center justify-between gap-6 overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 shadow-2xl shadow-slate-200/70 dark:border-white/10 dark:bg-[#111827] dark:shadow-black/30 sm:mt-24 sm:flex-row sm:rounded-[30px] sm:p-10"
+            className="mt-16 flex flex-col items-center justify-between gap-6 overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 shadow-2xl shadow-slate-200/70 dark:border-white/10 dark:bg-[#111827] dark:shadow-black/30 sm:mt-24 sm:flex-row sm:p-10"
           >
-            <div className="flex min-w-0 items-center gap-5 text-center sm:text-left">
+            <div className="flex items-center gap-5 text-center sm:text-left">
               <div className="hidden h-16 w-16 items-center justify-center rounded-2xl bg-[#007c89] text-white shadow-lg shadow-cyan-400/30 sm:flex">
                 <Send size={28} />
               </div>

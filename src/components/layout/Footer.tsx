@@ -1,4 +1,4 @@
-import { Globe, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const quickLinks = [
@@ -114,7 +114,7 @@ export default function Footer() {
               <ContactLink
                 href="https://www.instagram.com/technovasolutions.in/"
                 icon={<InstagramSvg />}
-                text="technovasolutions"
+                text="TechNova Solutions"
                 color="from-pink-500 via-red-500 to-yellow-500"
               />
 
@@ -126,28 +126,20 @@ export default function Footer() {
                 color="from-cyan-500 to-blue-600"
               />
 
-              {/* WEBSITE */}
-              <ContactLink
-                href="https://www.technovasolutions.in"
-                icon={<Globe size={15} />}
-                text="technovasolutions.in"
-                color="from-emerald-500 to-teal-600"
-              />
-            </div>
+              {/* AVAILABLE */}
+              <div className="mt-3 rounded-2xl border border-blue-100 bg-blue-50/80 p-3 text-center dark:border-white/10 dark:bg-white/[0.04] lg:text-left">
+                <p className="text-[10px] font-black uppercase tracking-[0.22em] text-blue-600 dark:text-cyan-300">
+                  Available
+                </p>
 
-            {/* AVAILABLE */}
-            <div className="mt-3 rounded-2xl border border-blue-100 bg-blue-50/80 p-3 text-center dark:border-white/10 dark:bg-white/[0.04] lg:text-left">
-              <p className="text-[10px] font-black uppercase tracking-[0.22em] text-blue-600 dark:text-cyan-300">
-                Available
-              </p>
+                <p className="mt-1 text-xs text-slate-500 dark:text-white/50">
+                  Monday - Friday
+                </p>
 
-              <p className="mt-1 text-xs text-slate-500 dark:text-white/50">
-                Monday - Friday
-              </p>
-
-              <p className="mt-1 text-xs font-black text-[#081c4b] dark:text-white sm:text-sm">
-                10:00 AM – 7:00 PM
-              </p>
+                <p className="mt-1 text-xs font-black text-[#081c4b] dark:text-white sm:text-sm">
+                  10:00 AM – 7:00 PM
+                </p>
+              </div>
             </div>
           </FooterColumn>
         </div>

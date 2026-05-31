@@ -151,29 +151,27 @@ export default function Header({ dark, setDark }: Props) {
         }`}
       >
         <nav className="flex flex-col gap-1 px-4 py-4">
-          {navItems
-            .filter((item) => item.name !== "Our Team")
-            .map((item) => {
-              const Icon = item.icon;
+          {navItems.map((item) => {
+            const Icon = item.icon;
 
-              return (
-                <NavLink
-                  key={item.name}
-                  to={item.href}
-                  onClick={() => setOpen(false)}
-                  className={({ isActive }) =>
-                    `flex items-center gap-4 rounded-2xl px-4 py-3.5 text-[15px] font-bold transition-all duration-300 active:scale-[0.98] ${
-                      isActive
-                        ? "bg-blue-600 text-white shadow-md"
-                        : "text-slate-700 hover:bg-slate-100 dark:text-zinc-300 dark:hover:bg-white/10"
-                    }`
-                  }
-                >
-                  <Icon size={18} />
-                  {item.name}
-                </NavLink>
-              );
-            })}
+            return (
+              <NavLink
+                key={item.name}
+                to={item.href}
+                onClick={() => setOpen(false)}
+                className={({ isActive }) =>
+                  `flex items-center gap-4 rounded-2xl px-4 py-3.5 text-[15px] font-bold transition-all duration-300 active:scale-[0.98] ${
+                    isActive
+                      ? "bg-blue-600 text-white shadow-md"
+                      : "text-slate-700 hover:bg-slate-100 dark:text-zinc-300 dark:hover:bg-white/10"
+                  }`
+                }
+              >
+                <Icon size={18} />
+                {item.name}
+              </NavLink>
+            );
+          })}
 
           <NavLink
             to="/contact"

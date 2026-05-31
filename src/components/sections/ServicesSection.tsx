@@ -68,11 +68,10 @@ const services = [
     color: "orange",
   },
 ];
-
 const ctaPoints = [
-  { title: <>Customized Solutions</>, icon: Settings },
-  { title: <>Result Driven</>, icon: Target },
-  { title: <>Ongoing Support</>, icon: Headphones },
+  { title: "Customized Solutions", icon: Settings },
+  { title: "Result Driven", icon: Target },
+  { title: "Ongoing Support", icon: Headphones },
 ];
 
 const colorMap: Record<
@@ -215,7 +214,7 @@ export default function ServicesSection() {
 
                 return (
                   <div
-                    key={String(item.title)}
+                    key={item.title}
                     className="flex min-h-37.5 flex-col items-center justify-center rounded-3xl border border-white/10 bg-white/5 px-4 py-5 text-center backdrop-blur-sm sm:min-h-46.25"
                   >
                     <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white/10">

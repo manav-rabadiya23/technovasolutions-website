@@ -1,4 +1,5 @@
 import { useState } from "react";
+import type { ChangeEvent, FormEvent } from "react";
 import { motion } from "framer-motion";
 
 type FormDataType = {
@@ -72,20 +73,23 @@ export default function InternshipApplySection() {
 
   const updateField =
     (field: keyof FormDataType) =>
-    (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
       setForm({ ...form, [field]: e.target.value });
       setErrors({ ...errors, [field]: "" });
       setStatus("");
     };
 
   const inputClass = (field: keyof FormDataType) =>
-    `w-full rounded-xl border px-4 py-3 outline-none transition dark:bg-white/5 dark:text-white ${
+    `w-full rounded-xl border px-4 py-3 text-sm font-medium outline-none transition duration-300
+    bg-white text-slate-900 placeholder:text-slate-400
+    dark:bg-[#0b1220] dark:text-white dark:placeholder:text-white/35
+    ${
       errors[field]
-        ? "border-red-500 focus:border-red-500"
-        : "border-slate-300 focus:border-[#007C89] dark:border-white/10"
+        ? "border-red-500 focus:border-red-500 focus:ring-4 focus:ring-red-500/10"
+        : "border-slate-300 focus:border-[#007C89] focus:ring-4 focus:ring-[#007C89]/10 dark:border-white/10 dark:focus:border-cyan-300"
     }`;
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!validateForm()) {
@@ -100,6 +104,7 @@ export default function InternshipApplySection() {
     Object.entries(form).forEach(([key, value]) => {
       submitData.append(key, value);
     });
+
     submitData.append(
       "_subject",
       "New Internship Application - TechNova Solutions",
@@ -131,25 +136,28 @@ export default function InternshipApplySection() {
   };
 
   return (
-    <section className="min-h-screen bg-slate-50 px-4 py-16 dark:bg-[#050816]">
-      <div className="mx-auto max-w-xl">
+    <section className="relative min-h-screen overflow-hidden bg-slate-50 px-4 py-16 dark:bg-[#050816] sm:px-6">
+      <div className="absolute left-1/2 top-0 h-80 w-80 -translate-x-1/2 rounded-full bg-[#007C89]/15 blur-3xl dark:bg-cyan-400/10" />
+      <div className="absolute bottom-0 right-0 h-80 w-80 rounded-full bg-blue-500/10 blur-3xl dark:bg-blue-500/10" />
+
+      <div className="relative mx-auto max-w-xl">
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="rounded-3xl border border-slate-200 bg-white p-6 shadow-xl dark:border-white/10 dark:bg-[#101827] sm:p-8"
+          className="rounded-3xl border border-slate-200 bg-white/95 p-6 shadow-xl backdrop-blur dark:border-white/10 dark:bg-[#101827]/95 sm:p-8"
         >
-          <h1 className="text-center text-3xl font-black text-slate-950 dark:text-white">
+          <h1 className="text-center font-serif text-3xl font-black text-slate-950 dark:text-white">
             Internship Registration Form
           </h1>
 
-          <p className="mt-3 text-center text-sm text-slate-500 dark:text-white/60">
+          <p className="mt-3 text-center text-sm leading-6 text-slate-500 dark:text-white/60">
             Apply for TechNova Solutions internship program.
           </p>
 
           <form onSubmit={handleSubmit} className="mt-8 space-y-5" noValidate>
             <div>
-              <label className="mb-2 block font-semibold text-slate-700 dark:text-white">
+              <label className="mb-2 block font-semibold text-slate-700 dark:text-white/90">
                 Full Name
               </label>
               <input
@@ -168,7 +176,7 @@ export default function InternshipApplySection() {
             </div>
 
             <div>
-              <label className="mb-2 block font-semibold text-slate-700 dark:text-white">
+              <label className="mb-2 block font-semibold text-slate-700 dark:text-white/90">
                 Email Address
               </label>
               <input
@@ -187,7 +195,7 @@ export default function InternshipApplySection() {
             </div>
 
             <div>
-              <label className="mb-2 block font-semibold text-slate-700 dark:text-white">
+              <label className="mb-2 block font-semibold text-slate-700 dark:text-white/90">
                 Phone Number
               </label>
               <input
@@ -206,7 +214,7 @@ export default function InternshipApplySection() {
             </div>
 
             <div>
-              <label className="mb-2 block font-semibold text-slate-700 dark:text-white">
+              <label className="mb-2 block font-semibold text-slate-700 dark:text-white/90">
                 College / University
               </label>
               <input
@@ -225,7 +233,7 @@ export default function InternshipApplySection() {
             </div>
 
             <div>
-              <label className="mb-2 block font-semibold text-slate-700 dark:text-white">
+              <label className="mb-2 block font-semibold text-slate-700 dark:text-white/90">
                 Internship Starting Date
               </label>
               <input
@@ -243,7 +251,7 @@ export default function InternshipApplySection() {
             </div>
 
             <div>
-              <label className="mb-2 block font-semibold text-slate-700 dark:text-white">
+              <label className="mb-2 block font-semibold text-slate-700 dark:text-white/90">
                 Internship Domain
               </label>
               <select
@@ -252,17 +260,40 @@ export default function InternshipApplySection() {
                 onChange={updateField("internship_domain")}
                 className={inputClass("internship_domain")}
               >
-                <option value="">Select Domain</option>
-                <option value="Prompt Engineering">Prompt Engineering</option>
-                <option value="AI-Powered Web Development">
+                <option className="bg-white text-slate-900" value="">
+                  Select Domain
+                </option>
+                <option
+                  className="bg-white text-slate-900"
+                  value="Prompt Engineering"
+                >
+                  Prompt Engineering
+                </option>
+                <option
+                  className="bg-white text-slate-900"
+                  value="AI-Powered Web Development"
+                >
                   AI-Powered Web Development
                 </option>
-                <option value="AI-Powered App Development">
+                <option
+                  className="bg-white text-slate-900"
+                  value="AI-Powered App Development"
+                >
                   AI-Powered App Development
                 </option>
-                <option value="SEO Optimization">SEO Optimization</option>
-                <option value="Web Design">Web Design</option>
-                <option value="WordPress Development">
+                <option
+                  className="bg-white text-slate-900"
+                  value="SEO Optimization"
+                >
+                  SEO Optimization
+                </option>
+                <option className="bg-white text-slate-900" value="Web Design">
+                  Web Design
+                </option>
+                <option
+                  className="bg-white text-slate-900"
+                  value="WordPress Development"
+                >
                   WordPress Development
                 </option>
               </select>
@@ -274,39 +305,39 @@ export default function InternshipApplySection() {
             </div>
 
             <div>
-              <label className="mb-3 block font-semibold text-slate-700 dark:text-white">
+              <label className="mb-3 block font-semibold text-slate-700 dark:text-white/90">
                 Payment Paid?
               </label>
 
               <div
-                className={`rounded-xl border p-4 ${
+                className={`rounded-xl border p-4 transition ${
                   errors.payment_paid
-                    ? "border-red-500"
-                    : "border-slate-300 dark:border-white/10"
+                    ? "border-red-500 bg-red-500/5"
+                    : "border-slate-300 bg-slate-50 dark:border-white/10 dark:bg-[#0b1220]"
                 }`}
               >
-                <div className="flex gap-6">
-                  <label className="flex cursor-pointer items-center gap-2 text-slate-700 dark:text-white/80">
-                    <input
-                      type="radio"
-                      name="payment_paid"
-                      value="Yes"
-                      checked={form.payment_paid === "Yes"}
-                      onChange={updateField("payment_paid")}
-                    />
-                    Yes
-                  </label>
-
-                  <label className="flex cursor-pointer items-center gap-2 text-slate-700 dark:text-white/80">
-                    <input
-                      type="radio"
-                      name="payment_paid"
-                      value="No"
-                      checked={form.payment_paid === "No"}
-                      onChange={updateField("payment_paid")}
-                    />
-                    No
-                  </label>
+                <div className="flex gap-4">
+                  {["Yes", "No"].map((value) => (
+                    <label
+                      key={value}
+                      className={`flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-xl border px-4 py-3 text-sm font-bold transition
+                      ${
+                        form.payment_paid === value
+                          ? "border-[#007C89] bg-[#007C89]/10 text-[#007C89] dark:border-cyan-300 dark:bg-cyan-300/10 dark:text-cyan-300"
+                          : "border-slate-200 bg-white text-slate-700 hover:border-[#007C89] dark:border-white/10 dark:bg-white/5 dark:text-white/75"
+                      }`}
+                    >
+                      <input
+                        type="radio"
+                        name="payment_paid"
+                        value={value}
+                        checked={form.payment_paid === value}
+                        onChange={updateField("payment_paid")}
+                        className="accent-[#007C89]"
+                      />
+                      {value}
+                    </label>
+                  ))}
                 </div>
               </div>
 
@@ -320,17 +351,17 @@ export default function InternshipApplySection() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full rounded-xl bg-[#007C89] px-6 py-4 font-bold text-white transition hover:bg-[#006873] disabled:cursor-not-allowed disabled:opacity-60"
+              className="w-full rounded-xl bg-[#007C89] px-6 py-4 font-bold text-white shadow-lg shadow-[#007C89]/20 transition hover:-translate-y-0.5 hover:bg-[#006873] disabled:cursor-not-allowed disabled:opacity-60"
             >
               {isSubmitting ? "Submitting..." : "Submit Application"}
             </button>
 
             {status && (
               <p
-                className={`text-center text-sm font-bold ${
+                className={`rounded-xl px-4 py-3 text-center text-sm font-bold ${
                   status.includes("✅")
-                    ? "text-[#007C89] dark:text-cyan-300"
-                    : "text-red-500"
+                    ? "bg-[#007C89]/10 text-[#007C89] dark:text-cyan-300"
+                    : "bg-red-500/10 text-red-500"
                 }`}
               >
                 {status}

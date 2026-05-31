@@ -153,7 +153,7 @@ export default function AboutSection() {
             <div className="relative flex min-h-65 items-center justify-center overflow-hidden bg-[#f8fafc] p-8 dark:bg-[#0f1722]">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,127,143,0.12),transparent_58%)] dark:bg-[radial-gradient(circle_at_center,rgba(255,216,20,0.10),transparent_58%)]" />
 
-              <div className="relative z-10 flex w-full max-w-xl items-center justify-center rounded-4xl border border-slate-200 bg-white px-8 py-10 shadow-[0_25px_70px_rgba(15,23,42,0.10)] dark:border-white/10 dark:bg-white">
+              <div className="relative z-10 flex w-full max-w-xl items-center justify-center rounded-[32px] bg-transparent px-8 py-10">
                 <motion.img
                   src={STARTUP_INDIA_LOGO}
                   alt="Startup India"
@@ -162,7 +162,7 @@ export default function AboutSection() {
                   whileHover={{ scale: 1.04 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.45 }}
-                  className="w-full max-w-105 object-contain"
+                  className="w-full max-w-[420px] object-contain"
                 />
               </div>
             </div>
